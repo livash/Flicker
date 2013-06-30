@@ -11,7 +11,20 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130629223801) do
+ActiveRecord::Schema.define(:version => 20130630223710) do
+
+  create_table "photos", :force => true do |t|
+    t.string   "description"
+    t.integer  "owner_id",     :null => false
+    t.string   "title"
+    t.string   "content_type"
+    t.datetime "created_at",   :null => false
+    t.datetime "updated_at",   :null => false
+    t.string   "filename"
+    t.binary   "data"
+  end
+
+  add_index "photos", ["owner_id"], :name => "index_photos_on_owner_id"
 
   create_table "users", :force => true do |t|
     t.string   "email",                  :default => "", :null => false

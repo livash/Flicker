@@ -1,0 +1,5 @@
+<% @photos.each do |photo| %>
+<div class="photo-thumbnail">
+	<%= image_tag serve_photo_url(photo) %>
+</div>
+<% end %>
