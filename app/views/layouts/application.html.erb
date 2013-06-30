@@ -10,8 +10,11 @@
     <div class="content">
 		<p class="notice"><%= notice %></p>
 	    <p class="alert"><%= alert %></p>
-		<%= button_to "Logout", destroy_user_session_url, method: :delete %>
-	
+		<% if current_user %>
+			<%= button_to "Logout", destroy_user_session_url, method: :delete %>
+		<% else %>
+			<%= button_to "Login", new_user_session_url, method: :get%>
+		<% end %>
 		<%= yield %>
 	</div>
 </body>
