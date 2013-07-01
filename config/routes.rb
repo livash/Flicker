@@ -5,5 +5,5 @@ Flickr::Application.routes.draw do
     get "serve", :on => :member
   end
 
-  root to: "home#index"
+  root to: "photos#index"
 end

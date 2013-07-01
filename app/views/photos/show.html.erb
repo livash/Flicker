@@ -1,3 +1,5 @@
-<%= image_tag serve_photo_url(@photo) %>
+<div class="single-photo">
+<%= image_tag serve_photo_url(@photo), :class => "single-photo-image" %>
+</div>
 <br>
 <%= link_to "Your photos", photos_url, :method => :get %>

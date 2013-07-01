@@ -1,10 +1,32 @@
 // Place all the styles related to the photos controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+body {
+	background-color: #C6E2FF;
+	color: #0000CD;
+}
+.photo-thumbnail-row {
+	
+}
 .photo-thumbnail {
 	height: 150px;
 	float: left;
+	margin: 2px 2px 2px 2px;
 }
-img {
+
+.thumbnail-photo {
 	height: 145px;
+	border: 3px solid #4682b4;
+	border-radius: 5px;
+}
+
+img .single-photo-image {
+	width: 300px;
+	height: 300px;
+}
+
+div .single-photo {
+	width: 80%;
+	float: right;
 }

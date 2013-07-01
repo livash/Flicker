@@ -1,5 +1,11 @@
+<br>
+<%= link_to "Upload new photo here", new_photo_url, :method => :get %>
+<br>
+<br>
 <% @photos.each do |photo| %>
 <div class="photo-thumbnail">
-	<%= image_tag serve_photo_url(photo) %>
+	<a href="<%= photo_url(photo) %>">
+	<%= image_tag serve_photo_url(photo), :class => "thumbnail-photo" %>
+	</a>
 </div>
 <% end %>
