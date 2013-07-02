@@ -6,7 +6,7 @@ Flickr::Application.routes.draw do
   resources :photos do
     get "serve", :on => :member
   end
-
+  resources :collections
   resources :albums do
     resources :photos, :only => [:show, :serve]
   end

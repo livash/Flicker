@@ -17,6 +17,7 @@ class AlbumsController < ApplicationController
   def create
     @album = Album.new(params[:album])
     if @album.save
+      current_user.albums << @album
       redirect_to albums_url
     else
       redirect_to albums_url
