@@ -6,6 +6,9 @@ class Photo < ActiveRecord::Base
   belongs_to :owner,
   :class_name => "User"
   
+  has_many :album_photos
+  has_many :albums, :through => :album_photos, :source => :album
+  
   has_many :comments
   has_many :tags
 
