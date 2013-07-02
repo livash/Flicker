@@ -1,5 +1,10 @@
 <div class="new-photo-form">
 	<h2>Upload your photo here:</h2>
+	<% if @photo.errors.size > 0 %>
+		<div class="error-messages">
+			<%= @photo.errors.full_messages %>
+		</div>
+	<% end %>
 
 	<form action="<%= photos_url %>" method="post" enctype="multipart/form-data">
 	

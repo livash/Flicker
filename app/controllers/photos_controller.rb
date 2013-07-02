@@ -30,6 +30,7 @@ class PhotosController < ApplicationController
   def show
     @photo = Photo.find(params[:id])
     if @photo
+      @photo_previous, @photo_next = @photo.previous_next
       render :show
     else
       render :index

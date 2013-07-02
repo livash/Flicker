@@ -1,5 +1,8 @@
+<%= link_to "Back to your photos", photos_url, :method => :get %>
+<br>
 <div class="single-photo">
-<%= image_tag serve_photo_url(@photo), :class => "single-photo-image" %>
+	<%= link_to "Previous #{@photo_previous.id}", photo_url(@photo_previous), :method => :get %>
+	<%= image_tag serve_photo_url(@photo), :class => "single-photo-image" %>
+	<%= link_to "Next #{@photo_next.id}", photo_url(@photo_next), :method => :get %>
 </div>
 <br>
-<%= link_to "Your photos", photos_url, :method => :get %>

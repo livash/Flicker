@@ -1,5 +1,7 @@
 class Photo < ActiveRecord::Base
-  attr_accessible :binary_data, :content_type, :description, :owner_id, :title, :data
+  attr_accessible :data, :content_type, :description, :owner_id, :title, :data
+  
+  validates :data, :content_type, :presence => true
   
   belongs_to :owner,
   :class_name => "User"
@@ -7,4 +9,21 @@ class Photo < ActiveRecord::Base
   has_many :comments
   has_many :tags
 
+  def previous_next
+    result = []
+    photos = Photo.all
+    photos.each_with_index do |p, idx|
+      if self == photos[idx] 
+        if (idx > 0 and idx < photos.size - 1)
+          result = [photos[idx - 1], photos[idx + 1]]
+        elsif idx == 0
+          result = [photos.last, photos[idx + 1]]
+        elsif idx == photos.size - 1
+          result = [photos[idx - 1], photos.first]
+        end
+      end
+    end
+
+    result
+  end
 end
