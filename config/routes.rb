@@ -1,10 +1,15 @@
 Flickr::Application.routes.draw do
   devise_for :users
 
+  resources :albums, :collections
+ 
   resources :photos do 
     get "serve", :on => :member
   end
+  
+  resources :albums do
+    resources :photos
+  end
 
-  resources :albums, :collections
   root to: "photos#index"
 end

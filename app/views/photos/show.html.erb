@@ -1,8 +1,22 @@
 <%= link_to "Back to your photos", photos_url, :method => :get %>
 <br>
+
+<% if @album.nil? %>
 <div class="single-photo">
 	<%= link_to "Previous #{@photo_previous.id}", photo_url(@photo_previous), :method => :get %>
 	<%= image_tag serve_photo_url(@photo), :class => "single-photo-image" %>
 	<%= link_to "Next #{@photo_next.id}", photo_url(@photo_next), :method => :get %>
 </div>
 <br>
+
+<% else %>
+
+<br>
+<div class="single-photo">
+	<%= link_to "Previous #{@photo_previous.id}", album_photo_url(@album, @photo_previous), :method => :get %>
+	<%= image_tag serve_photo_url(@photo), :class => "single-photo-image" %>
+	<%= link_to "Next #{@photo_next.id}", album_photo_url(@album, @photo_next), :method => :get %>
+</div>
+<br>
+
+<% end %>

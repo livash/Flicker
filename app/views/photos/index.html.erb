@@ -4,8 +4,7 @@
 <%= link_to "Your photo Albums", albums_url, :method => :get %>
 <br>
 <%= link_to "Upload new photo here", new_photo_url, :method => :get %>
-<br>
-<br>
+<h2>Your Photostream</h2>
 <% @photos.each do |photo| %>
 <div class="photo-thumbnail">
 	<a href="<%= photo_url(photo) %>">

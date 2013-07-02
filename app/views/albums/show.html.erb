@@ -1,0 +1,17 @@
+<br>
+<%= link_to "Your photo Collections", collections_url, :method => :get %>
+<br>
+<%= link_to "Your photo Albums", albums_url, :method => :get %>
+<br>
+<%= link_to "Upload new photo here", new_photo_url, :method => :get %>
+<br>
+<br>
+<h2><%= @album.title %></h2>
+<p><%= @album.description %></p>
+<% @album.photos.each do |photo| %>
+<div class="photo-thumbnail">
+	<a href="<%= album_photo_url(@album, photo) %>">
+	<%= image_tag serve_photo_url(photo), :class => "thumbnail-photo" %>
+	</a>
+</div>
+<% end %>

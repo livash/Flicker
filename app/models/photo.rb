@@ -12,9 +12,12 @@ class Photo < ActiveRecord::Base
   has_many :comments
   has_many :tags
 
-  def previous_next
+  def previous_next(album = nil)
     result = []
-    photos = Photo.all
+    puts "ALBUM>>>>>>>>>>>>"
+    puts album
+    album ? photos = album.photos : photos = Photo.all
+    puts photos.count
     photos.each_with_index do |p, idx|
       if self == photos[idx] 
         if (idx > 0 and idx < photos.size - 1)
