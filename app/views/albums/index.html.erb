@@ -1,0 +1,17 @@
+<h1>Your photo albums:</h1>
+<% @albums.each do |album| %>
+<div class="album-tile">
+	<table>
+		<tr><td>
+			<% if album.photos.first %>			
+			<%= image_tag serve_photo_url(album.photos.first), :class => "album-first-photo" %>
+			<% else %>
+			<%= image_tag serve_photo_url(Photo.first), :class => "album-first-photo" %>
+			<% end %>
+		</td></tr>
+		<tr><td>			
+			<%= album.title %>, <%=album.photos.count%> photos
+		</td></tr>
+	</table>
+</div>
+<% end %>
