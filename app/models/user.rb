@@ -6,14 +6,16 @@ class User < ActiveRecord::Base
          :recoverable, :rememberable, :trackable, :validatable
 
   attr_accessible :email, :password, :password_confirmation, :remember_me
-  
+
+  has_many :albums
+
   has_many :photos,
   :foreign_key => :owner_id
-  
+
   has_many :comments,
-  :foreign_key => :author_id 
-  
+  :foreign_key => :author_id
+
   has_many :tags,
   :foreign_key => :author_id
-  
+
 end
