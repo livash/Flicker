@@ -14,6 +14,11 @@ class AlbumsController < ApplicationController
     end
   end
 
+  def new
+    @album = Album.new
+
+  end
+
   def create
     @album = Album.new(params[:album])
     if @album.save

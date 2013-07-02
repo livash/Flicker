@@ -1,7 +1,7 @@
 Flickr::Application.routes.draw do
   devise_for :users
 
-  resources :albums, :only => [:index, :create]
+  resources :albums, :only => [:index, :new, :create]
 
   resources :photos do
     get "serve", :on => :member
