@@ -1,0 +1,13 @@
+<div class="album-tile">
+	<table>
+		<tr><td>
+			<% album.photos.first ? photo = album.photos.first : photo = Photo.find(30) %>
+			<a href="<%= album_url(album)%>">
+				<%= image_tag serve_photo_url(photo), :class => "album-first-photo" %>
+			</a>
+		</td></tr>
+		<tr><td>
+			<%= album.title %>, <%=album.photos.count%> photos
+		</td></tr>
+	</table>
+</div>
