@@ -6,12 +6,22 @@
 <%= link_to "Upload new photo here", new_photo_url, :method => :get %>
 <br>
 <br>
+
 <h2><%= @album.title %></h2>
 <p><%= @album.description %></p>
-<% @album.photos.each do |photo| %>
-<div class="photo-thumbnail">
-	<a href="<%= album_photo_url(@album, photo) %>">
-	<%= image_tag photo.image.url(:thumb), :class => "thumbnail-photo" %>
-	</a>
-</div>
+<div class="album-photos">
+	<% @album.photos.each do |photo| %>
+	<div class="photo-thumbnail">
+		<a href="<%= album_photo_url(@album, photo) %>">
+		<%= image_tag photo.image.url(:thumb), :class => "thumbnail-photo" %>
+		</a>
+	</div>
+
 <% end %>
+</div>
+<br>
+<h3>Select pictures from your photostream to add to the album <%= @album.title %></h3>
+<br>
+<div class="photostream-form">
+	<%= render :partial => "add_photos_form" %>
+</div>

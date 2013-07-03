@@ -11,9 +11,6 @@ body {
 	color: #cc0000;
 }
 
-.photo-thumbnail-row {
-	
-}
 .photo-thumbnail {
 	height: 150px;
 	width: 199px;
@@ -27,12 +24,25 @@ body {
 	border-radius: 5px;
 }
 
-//.single-photo-image {
-//	width: 300px;
-//	height: 300px;
-//}
-
 div .single-photo {
 	width: 80%;
 	float: right;
+}
+
+.header-index {
+	
+}
+
+.side-bar-index {
+	background: #F3F781;
+	float: left;
+	width: 20%;
+	height: 500px;
+	
+}
+
+.content-index {
+	float: right;
+	width: 74%;
+	height: 100%;
 }

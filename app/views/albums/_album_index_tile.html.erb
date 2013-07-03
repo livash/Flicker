@@ -1,7 +1,7 @@
 <div class="album-tile">
 	<table>
 		<tr><td>
-			<% album.photos.first ? photo = album.photos.first : photo = Photo.find(30) %>
+			<% album.photos.first ? photo = album.photos.first : photo = current_user.photos.first %>
 			<a href="<%= album_url(album)%>">
 				<%= image_tag photo.image.url(:thumb), :class => "album-first-photo" %>
 			</a>

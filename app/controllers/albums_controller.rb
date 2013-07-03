@@ -28,4 +28,14 @@ class AlbumsController < ApplicationController
       redirect_to albums_url
     end
   end
+  
+  def update
+    @album = Album.find(params[:id])
+    @album.photo_ids += params[:photo_id]
+    if @album.save
+      redirect_to albums_url
+    else
+      redirect_to albums_url
+    end
+  end
 end

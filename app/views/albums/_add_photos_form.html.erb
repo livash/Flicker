@@ -1,0 +1,17 @@
+<form action="<%= album_url(@album) %>" method="POST">
+	<input type="hidden" name="_method" value="PUT">
+	<input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+<input type="submit" value="Add Photos">
+<br>
+<% current_user.photos.each do |photo| %>
+	<input type="checkbox" 
+		name="photo_id[]" 
+		value="<%= photo.id %>" 
+		id="photo_id_<%= photo.id%>">
+	<label for="photo_id_<%= photo.id%>">
+		<img src="<%= photo.image.url(:thumb) %>"></img>
+	</label>
+<% end %>
+<br>
+<input type="submit" value="Add Photos">
+</form>
