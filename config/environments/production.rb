@@ -65,12 +65,12 @@ Flickr::Application.configure do
   # with SQLite, MySQL, and PostgreSQL)
   # config.active_record.auto_explain_threshold_in_seconds = 0.5
 
-  config.paperclip_defaults = {
-    :storage => :s3,
-    :s3_credentials => {
-      :bucket => YOUR_BUCKET_NAME,
-      :access_key_id => YOUR_ACCESS_KEY_ID,
-      :secret_access_key => YOUR_SECRET_ACCESS_KEY
-    }
-  }
+  # config.paperclip_defaults = {
+  #   :storage => :s3,
+  #   :s3_credentials => {
+  #     :bucket => YOUR_BUCKET_NAME,
+  #     :access_key_id => YOUR_ACCESS_KEY_ID,
+  #     :secret_access_key => YOUR_SECRET_ACCESS_KEY
+  #   }
+  # }
 end
