@@ -1,16 +1,14 @@
 class Photo < ActiveRecord::Base
   attr_accessible :data, :content_type, :description, :owner_id, :title, :data, :image
 
-  
-
   belongs_to :owner,
   :class_name => "User"
 
-  has_many :album_photos
+  has_many :album_photos, :dependent => :destroy
   has_many :albums, :through => :album_photos, :source => :album
 
-  has_many :comments
-  has_many :tags
+  has_many :comments, :dependent => :destroy
+  has_many :tags, :dependent => :destroy
 
   has_attached_file :image, :styles => {
     # thumb: '100x100>',
