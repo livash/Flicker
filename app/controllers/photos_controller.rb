@@ -1,5 +1,5 @@
 class PhotosController < ApplicationController
-  #before_filter :user_signed_in?
+  before_filter :user_signed_in?
 
   def index
     @photos = current_user.photos

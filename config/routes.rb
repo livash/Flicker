@@ -10,6 +10,8 @@ Flickr::Application.routes.draw do
   resources :albums do
     resources :photos, :only => [:show, :serve]
   end
+  
+  resources :home, :only => :index
 
-  root to: "photos#index"
+  root to: "home#index"
 end
