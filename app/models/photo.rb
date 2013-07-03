@@ -1,7 +1,7 @@
 class Photo < ActiveRecord::Base
   attr_accessible :data, :content_type, :description, :owner_id, :title, :data, :image
 
-  validates :data, :content_type, :presence => true
+  
 
   belongs_to :owner,
   :class_name => "User"
@@ -13,8 +13,9 @@ class Photo < ActiveRecord::Base
   has_many :tags
 
   has_attached_file :image, :styles => {
-     :big => "600x600>",
-     :small => "50x50#"
+    thumb: '100x100>',
+    square: '200x200#',
+    medium: '300x300>'
    }
 
   def previous_next(album = nil)

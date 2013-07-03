@@ -44,10 +44,11 @@ class PhotosController < ApplicationController
 
   def serve
     @photo = Photo.find(params[:id])
-    send_data(@photo.data,
-          :type => @photo.content_type,
-          :filename => "#{@photo.filename}.jpg",
-          :disposition => "inline")
+    redirect_to @photo.image.url(:thumb)
+    # send_data(@photo.data,
+#           :type => @photo.content_type,
+#           :filename => "#{@photo.filename}.jpg",
+#           :disposition => "inline")
   end
 
   def destroy
