@@ -1,5 +1,5 @@
 class PhotosController < ApplicationController
-  before_filter :user_signed_in?
+  #before_filter :authenticate_user!
 
   def index
     @photos = current_user.photos
@@ -35,7 +35,7 @@ class PhotosController < ApplicationController
     @photo = Photo.find(params[:id])
     if @photo
       params[:album_id] ? @album = Album.find(params[:album_id]) : @album = nil
-      @photo_previous, @photo_next = @photo.previous_next(@album)
+      @photo_previous, @photo_next = @photo.previous_next(@album, current_user.id)
       render :show
     else
       render :index

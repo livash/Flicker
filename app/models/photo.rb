@@ -17,17 +17,18 @@ class Photo < ActiveRecord::Base
     thumb: '220x200#'
    }
 
-  def previous_next(album = nil)
-    result = []
-    album ? photos = album.photos : photos = Photo.all
+  def previous_next(album = nil, user_id)
+    result = [self, self]
+    album ? photos = album.photos : photos = Photo.where(:owner_id => user_id)
     puts photos.count
     photos.each_with_index do |p, idx|
+      puts "In the loop"
       if self == photos[idx]
         if (idx > 0 and idx < photos.size - 1)
           result = [photos[idx - 1], photos[idx + 1]]
-        elsif idx == 0
+        elsif (idx == 0 and photos.size > 1)
           result = [photos.last, photos[idx + 1]]
-        elsif idx == photos.size - 1
+        elsif (idx == photos.size - 1 and photos.size > 1)
           result = [photos[idx - 1], photos.first]
         end
       end
