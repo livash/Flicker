@@ -3,10 +3,10 @@ Flickr::Application.routes.draw do
 
   resources :albums, :only => [:index, :new, :create]
 
-  resources :photos do
-    get "serve", :on => :member
-  end
+  resources :photos 
+  
   resources :collections
+  
   resources :albums do
     resources :photos, :only => [:show, :serve]
   end

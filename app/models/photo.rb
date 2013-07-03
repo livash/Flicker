@@ -13,15 +13,14 @@ class Photo < ActiveRecord::Base
   has_many :tags
 
   has_attached_file :image, :styles => {
-    thumb: '100x100>',
-    square: '200x200#',
-    medium: '300x300>'
+    # thumb: '100x100>',
+    # square: '200x200#',
+    # medium: '300x300>'
+    thumb: '220x200#'
    }
 
   def previous_next(album = nil)
     result = []
-    puts "ALBUM>>>>>>>>>>>>"
-    puts album
     album ? photos = album.photos : photos = Photo.all
     puts photos.count
     photos.each_with_index do |p, idx|

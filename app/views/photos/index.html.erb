@@ -8,7 +8,7 @@
 <% @photos.each do |photo| %>
 <div class="photo-thumbnail">
 	<a href="<%= photo_url(photo) %>">
-	<%= image_tag serve_photo_url(photo), :class => "thumbnail-photo" %>
+	<%= image_tag photo.image.url(:thumb), :class => "thumbnail-photo" %>
 	</a>
 </div>
 <% end %>

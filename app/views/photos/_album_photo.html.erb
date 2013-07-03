@@ -1,6 +1,6 @@
 <div class="single-photo">
 	<%= link_to "Previous #{@photo_previous.id}", album_photo_url(@album, @photo_previous), :method => :get %>
-	<%= image_tag serve_photo_url(@photo), :class => "single-photo-image" %>
+	<%= image_tag @photo.image.url, :class => "single-photo-image" %>
 	<%= link_to "Next #{@photo_next.id}", album_photo_url(@album, @photo_next), :method => :get %>
 </div>
 <br>

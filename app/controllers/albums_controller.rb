@@ -1,4 +1,5 @@
 class AlbumsController < ApplicationController
+  before_filter :user_signed_in?
 
   def index
     @albums = Album.all
@@ -16,7 +17,6 @@ class AlbumsController < ApplicationController
 
   def new
     @album = Album.new
-
   end
 
   def create
