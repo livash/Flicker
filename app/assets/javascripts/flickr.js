@@ -9,9 +9,15 @@ window.Flickr = {
 		Flickr.Store.photos.fetch({
 			success: function(resp){
 				console.log("received files....");
+				$rootElOne = $('.footer');
+				$rootElTwo = $('.side-bar');
+				var router = new Flickr.Routers.Photos($rootElOne, $rootElTwo, Flickr.Store.photos);
+				Backbone.history.start();
 			}
 		});
-		Backbone.history.start();
+
+		//var newAlbumFormView =
+
   }
 };
 

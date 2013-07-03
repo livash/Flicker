@@ -1,16 +1,21 @@
 class Photo < ActiveRecord::Base
-  attr_accessible :data, :content_type, :description, :owner_id, :title, :data
-  
+  attr_accessible :data, :content_type, :description, :owner_id, :title, :data, :image
+
   validates :data, :content_type, :presence => true
-  
+
   belongs_to :owner,
   :class_name => "User"
-  
+
   has_many :album_photos
   has_many :albums, :through => :album_photos, :source => :album
-  
+
   has_many :comments
   has_many :tags
+
+  has_attached_file :image, :styles => {
+     :big => "600x600>",
+     :small => "50x50#"
+   }
 
   def previous_next(album = nil)
     result = []
@@ -19,7 +24,7 @@ class Photo < ActiveRecord::Base
     album ? photos = album.photos : photos = Photo.all
     puts photos.count
     photos.each_with_index do |p, idx|
-      if self == photos[idx] 
+      if self == photos[idx]
         if (idx > 0 and idx < photos.size - 1)
           result = [photos[idx - 1], photos[idx + 1]]
         elsif idx == 0
