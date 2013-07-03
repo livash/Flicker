@@ -4,14 +4,14 @@
 <input type="submit" value="Add Photos">
 <br>
 <% current_user.photos.each do |photo| %>
-	<input type="checkbox" 
-		name="photo_id[]" 
-		value="<%= photo.id %>" 
-		id="photo_id_<%= photo.id%>">
-	<label for="photo_id_<%= photo.id%>">
-		<img src="<%= photo.image.url(:thumb) %>"></img>
-	</label>
+	<div class="photo-thumbnail">
+		<input type="checkbox" 
+			name="photo_id[]" 
+			value="<%= photo.id %>" 
+			id="photo_id_<%= photo.id%>">
+		<label for="photo_id_<%= photo.id%>">
+			<img src="<%= photo.image.url(:thumb) %>" class="thumbnail-photo"></img>
+		</label>
+	</div>
 <% end %>
-<br>
-<input type="submit" value="Add Photos">
 </form>
