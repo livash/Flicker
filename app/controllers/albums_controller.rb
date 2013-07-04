@@ -31,9 +31,9 @@ class AlbumsController < ApplicationController
   
   def update
     @album = Album.find(params[:id])
-    @album.photo_ids += params[:photo_id]
+    @album.photo_ids =@album.photo_ids << params[:photo_id]
     if @album.save
-      redirect_to albums_url
+      render :json => @album
     else
       redirect_to albums_url
     end
