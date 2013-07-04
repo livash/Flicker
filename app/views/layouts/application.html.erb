@@ -1,21 +1,23 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Flickr</title>
-  <%= stylesheet_link_tag    "application", :media => "all" %>
-  <%= javascript_include_tag "application" %>
-  <%= csrf_meta_tags %>
+    <meta charset="utf-8">
+    <!-- <meta name="viewport" content="width=device-width, initial-scale=1.0"> -->
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <title>flickr</title>
+    <%= stylesheet_link_tag    "application", :media => "all" %>
+    <%= javascript_include_tag "application" %>
+    <%= csrf_meta_tags %>
 </head>
 <body>
-    <div class="main">
-		<p class="notice"><%= notice %></p>
-	    <p class="alert"><%= alert %></p>
-		<% if current_user %>
-			<%= button_to "Logout", destroy_user_session_url, method: :delete %>
-		<% else %>
-			<%= button_to "Login", new_user_session_url, method: :get%>
-		<% end %>
+	<%= render :partial => "/photos/nav-bar" if current_user %>
+    <div class="container" style="margin-top:40px">
+		<!-- <p class="notice"><%= notice %></p>
+	    <p class="alert"><%= alert %></p> -->
+
 		<%= yield %>
-	</div>
+		
+	</div>	
 </body>
 </html>

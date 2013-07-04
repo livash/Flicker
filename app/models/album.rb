@@ -5,7 +5,7 @@ class Album < ActiveRecord::Base
 
   belongs_to :user
 
-  has_many :album_photos
+  has_many :album_photos, :dependent => :destroy
   has_many :photos, :through => :album_photos, :source => :photo
 
   has_many :collection_albums
