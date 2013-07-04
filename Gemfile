@@ -5,6 +5,7 @@ gem 'debugger'
 gem 'devise'
 gem 'ejs'
 gem 'jquery-rails'
+gem 'jquery-ui-rails'
 gem 'rails', '3.2.13'
 gem "paperclip"
 gem "aws-sdk"

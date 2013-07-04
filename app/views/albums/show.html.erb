@@ -18,7 +18,6 @@
 		<%= image_tag photo.image.url(:thumb), :class => "thumbnail-photo" %>
 		</a>
 	</div>
-
 <% end %>
 </div>
 <br>
@@ -27,3 +26,11 @@
 <div class="photostream-form">
 	<%= render :partial => "add_photos_form" %>
 </div>
+
+<script>
+	$(document).ready(function() {
+		console.log("hello");
+		$(".photostream-form .photo-thumbnail").draggable();
+		
+	})
+</script>
