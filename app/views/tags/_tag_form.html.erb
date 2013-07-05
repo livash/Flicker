@@ -1,13 +1,18 @@
 <div class="tag-form">
-	<form action="<%= tags_url %>" method="post" accept-charset="utf-8">
+	<form id="tag-form-id">
 		<input type="hidden" 
 			name="authenticity_token" 
 			value="<%= form_authenticity_token %>">
-		<input type="hidden" name="tag[photo_id]" value="<%= 10 %>">
+		<input type="hidden" name="tag[photo_id]" value="<%= @photo.id %>">
 		<input type="hidden" name="tag[author_id]" value="<%= current_user.id %>">
 		<label for="tag_title">Tag</label>
 		<input type="text" name="tag[title]" id="tag_title">
 	</form>
+	<div class="tags-show">
+	</div>
 	<%= link_to "Display All your tags", "#", :method => :get %>
+	<div class="show-all-tags">
+		
+	</div>
 </div>
 

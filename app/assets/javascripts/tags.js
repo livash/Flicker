@@ -5,12 +5,13 @@ Flickr.Tag ={
 			var $form = $(this).serializeJSON();
 			console.log($form);
 			$.ajax({
-				url: "<%= tags_url %>",
+				url: "/tags",
 				type: "post",
 				data: $form,
 				success: function() {
 					var tagTitle = $("#tag_title").val();
 					//clear text field
+					console.log("success////////");
 					$("#tag_title").val("");
 					//put result into a div
 					var content = $('<div></div>').addClass("single-tag");
