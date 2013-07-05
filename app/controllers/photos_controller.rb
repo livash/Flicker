@@ -53,8 +53,14 @@ class PhotosController < ApplicationController
 
   def destroy
     @photo = Photo.find(params[:id])
-    @photo.destroy
-    @photos = current_user.photos
-    render :index
+    if current_user.photos.include?(@photo)
+      @photo.destroy
+      @photos = current_user.photos
+      render :index
+    else
+      #need to add some error message...
+      @photos = current_user.photos
+      render :index
+    end
   end
 end

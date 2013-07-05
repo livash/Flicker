@@ -14,4 +14,14 @@ class TagsController < ApplicationController
       render :json => @tag.errors.full_messages, :status => 422
     end
   end
+  
+  def destroy
+    @tag = Tag.find(params[:id])
+    if current_user.tags.include?(@tag)
+      @tag.destroy
+      render :json => nil
+    else
+      render :json => nil
+    end
+  end
 end

@@ -8,13 +8,14 @@ Flickr.Tag ={
 				url: "/tags",
 				type: "post",
 				data: $form,
-				success: function() {
+				success: function(resp) {
 					var tagTitle = $("#tag_title").val();
 					//clear text field
-					console.log("success////////");
 					$("#tag_title").val("");
 					//put result into a div
 					var content = $('<div></div>').addClass("single-tag");
+					var tagID = resp.id;
+					content.attr('data-id', tagID);
 					content.html(tagTitle);
 					$(".tags-show").append(content);
 				},
@@ -24,26 +25,32 @@ Flickr.Tag ={
 				}
 			});
 		});	
+		
+		DOMaddTag = function (){
+			
+		};
 	},
 	showAllTags: function() {
 		$("#link-to-all-tags").click(function() {
 			$(this).unbind('click');
-			console.log("All your tags");
 			$.ajax({
 				url: "/tags",
 				type: "get",
 				success: function(resp) {
-					//Flickr.Store.tags = resp;
-					console.log(resp);
 					var $content = $("<div>");
 					$(resp).each(function(idx, tag){
-						console.log(tag);
-						var $span = $("<span>").html(tag.title + " ");
+						var $span = $("<span>").html(tag.title + ", ");
 						$content.append($span);
 					});
 					$(".show-all-tags").append($content);
 				}
 			});
+		});
+	},
+	removeTag: function() {
+		$(".remove-tag").click(function(event){
+			event.preventDefault();
+			console.log($(event.target).parent());
 		});
 	}
 }

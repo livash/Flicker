@@ -1,14 +1,19 @@
 <div class="tag-form">
 	<form id="tag-form-id">
 		<input type="hidden" 
-			name="authenticity_token" 
-			value="<%= form_authenticity_token %>">
+		name="authenticity_token" 
+		value="<%= form_authenticity_token %>">
 		<input type="hidden" name="tag[photo_id]" value="<%= @photo.id %>">
 		<input type="hidden" name="tag[author_id]" value="<%= current_user.id %>">
 		<label for="tag_title">Tag</label>
 		<input type="text" name="tag[title]" id="tag_title">
 	</form>
 	<div class="tags-show">
+		<% @photo.tags.each do |tag| %>
+		<div class="single-tag" data-id="tag-<%= tag.id %>">
+			<%= tag.title %> <a href="x" class="remove-tag">x</a>
+		</div>
+		<% end %>
 	</div>
 	<a href="#" id="link-to-all-tags">Show All your tags</a>
 	<div class="show-all-tags">

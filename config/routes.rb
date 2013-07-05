@@ -4,7 +4,7 @@ Flickr::Application.routes.draw do
   resources :albums, :only => [:index, :new, :create]
 
   resources :photos 
-  resources :tags, :only => [:create, :index]
+  resources :tags, :only => [:create, :index, :destroy]
   resources :collections
   
   resources :albums do
