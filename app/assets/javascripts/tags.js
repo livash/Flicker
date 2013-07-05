@@ -24,7 +24,27 @@ Flickr.Tag ={
 				}
 			});
 		});	
-		
+	},
+	showAllTags: function() {
+		$("#link-to-all-tags").click(function() {
+			$(this).unbind('click');
+			console.log("All your tags");
+			$.ajax({
+				url: "/tags",
+				type: "get",
+				success: function(resp) {
+					//Flickr.Store.tags = resp;
+					console.log(resp);
+					var $content = $("<div>");
+					$(resp).each(function(idx, tag){
+						console.log(tag);
+						var $span = $("<span>").html(tag.title + " ");
+						$content.append($span);
+					});
+					$(".show-all-tags").append($content);
+				}
+			});
+		});
 	}
 }
 
