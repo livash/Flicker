@@ -1,5 +1,5 @@
-Flickr.Views.AlbumsIndex = Backbone.View.extend({
-
-  template: JST['albums/index']
-
-});
+// Flickr.Views.AlbumsIndex = Backbone.View.extend({
+// 
+//   template: JST['albums/index']
+// 
+// });

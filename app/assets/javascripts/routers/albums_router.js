@@ -1,3 +1,3 @@
-Flickr.Routers.Albums = Backbone.Router.extend({
-
-});
+// Flickr.Routers.Albums = Backbone.Router.extend({
+// 
+// });

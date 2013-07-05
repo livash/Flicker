@@ -6,3 +6,14 @@
 <% else %>
 	<%= render partial: "album_photo" %>
 <% end %>
+<!-- add tags -->
+<%= render :partial => "tags/tag_form" %>
+
+<script>
+$(document).ready(function(){
+	console.log("Here.......");
+	// call the below function on event....
+	//extract "params" from the form...
+	Flickr.Tag.addTag(params);
+});
+</script>

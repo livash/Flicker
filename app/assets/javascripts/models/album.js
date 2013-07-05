@@ -1,3 +1,3 @@
-Flickr.Models.Album = Backbone.Model.extend({
-	urlRoot: '/albums'
-});
+// Flickr.Models.Album = Backbone.Model.extend({
+// 	urlRoot: '/albums'
+// });
