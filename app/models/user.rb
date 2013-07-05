@@ -7,15 +7,17 @@ class User < ActiveRecord::Base
 
   attr_accessible :email, :password, :password_confirmation, :remember_me
 
-  has_many :albums
+  has_many :albums, :dependent => :destroy
 
   has_many :photos,
-  :foreign_key => :owner_id
+  :foreign_key => :owner_id,
+  :dependent => :destroy
 
   has_many :comments,
-  :foreign_key => :author_id
+  :foreign_key => :author_id,
+  :dependent => :destroy
 
   has_many :tags,
-  :foreign_key => :author_id
-
+  :foreign_key => :author_id,
+  :dependent => :destroy
 end
