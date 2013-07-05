@@ -14,7 +14,7 @@
 //= require jquery_ujs
 //= require underscore
 // require backbone
-// require jquery.serializeJSON
+//= require jquery.serializeJSON
 //= require jquery.ui.all
 //= require flickr
 //= require_tree ../templates
