@@ -9,7 +9,7 @@ Flickr.Tag ={
 				type: "post",
 				data: $form,
 				success: function(resp) {
-					var tagTitle = $("#tag_title").val();
+					var tagTitle = $("#tag_title").val() + " ";
 					//clear text field
 					$("#tag_title").val("");
 					//put result into a div
@@ -17,6 +17,9 @@ Flickr.Tag ={
 					var tagID = resp.id;
 					content.attr('data-id', tagID);
 					content.html(tagTitle);
+					var link = $("<a>").attr({'href': '#', 'class': 'remove-tag'}).html('x');
+					//<a href="x" class="remove-tag">x</a>
+					$(content).append(link);
 					$(".tags-show").append(content);
 				},
 				error: function() {

@@ -3,7 +3,7 @@
 		<input type="hidden" 
 		name="authenticity_token" 
 		value="<%= form_authenticity_token %>">
-		<input type="hidden" name="tag[photo_id]" value="<%= @photo.id %>">
+		<input type="hidden" name="tagging[photo_id]" value="<%= @photo.id %>">
 		<input type="hidden" name="tag[author_id]" value="<%= current_user.id %>">
 		<label for="tag_title">Tag</label>
 		<input type="text" name="tag[title]" id="tag_title">

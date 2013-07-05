@@ -8,6 +8,7 @@ class TagsController < ApplicationController
   
   def create
     @tag = Tag.new(params[:tag])
+    @tag.taggings.build(params[:tagging])
     if @tag.save
       render :json => @tag
     else
