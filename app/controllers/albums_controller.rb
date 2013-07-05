@@ -2,7 +2,7 @@ class AlbumsController < ApplicationController
   before_filter :authenticate_user!
 
   def index
-    @albums = Album.all
+    @albums = current_user.albums
   end
 
   def show
@@ -10,7 +10,7 @@ class AlbumsController < ApplicationController
     if @album
       render :show
     else
-      @albums = Album.all
+      @albums = current_user.albums
       render :index
     end
   end
@@ -31,7 +31,8 @@ class AlbumsController < ApplicationController
   
   def update
     @album = Album.find(params[:id])
-    @album.photo_ids =@album.photo_ids << params[:photo_id]
+    redirect_to albums_url if !current_user.albums.include?(@album)
+    @album.photo_ids = @album.photo_ids << params[:photo_id]
     if @album.save
       render :json => @album
     else
