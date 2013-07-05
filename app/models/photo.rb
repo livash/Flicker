@@ -8,7 +8,8 @@ class Photo < ActiveRecord::Base
   has_many :albums, :through => :album_photos, :source => :album
 
   has_many :comments, :dependent => :destroy
-  has_many :tags, :dependent => :destroy
+  has_many :taggings
+  has_many :tags, :through => :taggings, :source => :tag
 
   has_attached_file :image, :styles => {
     # thumb: '100x100>',
