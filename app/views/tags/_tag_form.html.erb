@@ -8,10 +8,11 @@
 		<label for="tag_title">Tag</label>
 		<input type="text" name="tag[title]" id="tag_title">
 	</form>
-	<div class="tags-show">
-		<% @photo.tags.each do |tag| %>
-		<div class="single-tag" data-id="tag-<%= tag.id %>">
-			<%= tag.title %> <a href="x" class="remove-tag">x</a>
+	<div class="tags-show" data-id="photo-<%= @photo.id %>">
+		<% @photo.taggings.each do |tagging| %>
+		<div class="single-tag" data-id="tagging-<%= tagging.id %>"> 
+			<!-- change tag.id to tagging.id -->
+			<%= tagging.tag.title %> <a href="x" class="remove-tag">x</a>
 		</div>
 		<% end %>
 	</div>

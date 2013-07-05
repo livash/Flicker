@@ -9,16 +9,18 @@ Flickr.Tag ={
 				type: "post",
 				data: $form,
 				success: function(resp) {
+					console.log("here....");
+					console.log(resp);
 					var tagTitle = $("#tag_title").val() + " ";
 					//clear text field
 					$("#tag_title").val("");
 					//put result into a div
 					var content = $('<div></div>').addClass("single-tag");
-					var tagID = resp.id;
-					content.attr('data-id', tagID);
+					var taggingID = "tagging-" + resp.id;
+					content.attr('data-id', taggingID);
 					content.html(tagTitle);
 					var link = $("<a>").attr({'href': '#', 'class': 'remove-tag'}).html('x');
-					//<a href="x" class="remove-tag">x</a>
+					// link.bind("click");
 					$(content).append(link);
 					$(".tags-show").append(content);
 				},
@@ -28,10 +30,6 @@ Flickr.Tag ={
 				}
 			});
 		});	
-		
-		DOMaddTag = function (){
-			
-		};
 	},
 	showAllTags: function() {
 		$("#link-to-all-tags").click(function() {
@@ -51,9 +49,23 @@ Flickr.Tag ={
 		});
 	},
 	removeTag: function() {
-		$(".remove-tag").click(function(event){
+		$(".tags-show").on('click', 'a.remove-tag', function(event){
 			event.preventDefault();
-			console.log($(event.target).parent());
+			var parentDiv = $(event.target).parent();
+			// var tagID = $(parentDiv).attr('data-id').split('-')[1];
+			// var photoID = $(".tags-show").attr('data-id').split('-')[1];
+			var taggingID = $(parentDiv).attr('data-id').split('-')[1];
+			console.log(taggingID);
+			var url = "/taggings/" + taggingID;
+			$.ajax({
+				url: url,
+				type: "delete",
+				//data: {tagging: {photo_id: photoID, tag_id: tagID}},
+				success: function() {
+					$(parentDiv).remove();
+				}
+			});
+			
 		});
 	}
 }

@@ -10,10 +10,14 @@ class TagsController < ApplicationController
     @tag = Tag.new(params[:tag])
     @tag.taggings.build(params[:tagging])
     if @tag.save
-      render :json => @tag
+      render :json => @tag.taggings.last
     else
-      render :json => @tag.errors.full_messages, :status => 422
+      render :json => @tag.taggings # think about what to do if tag already exists and user tries to add it gain
     end
+  end
+  
+  def update
+    
   end
   
   def destroy
