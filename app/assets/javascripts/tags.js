@@ -52,15 +52,12 @@ Flickr.Tag ={
 		$(".tags-show").on('click', 'a.remove-tag', function(event){
 			event.preventDefault();
 			var parentDiv = $(event.target).parent();
-			// var tagID = $(parentDiv).attr('data-id').split('-')[1];
-			// var photoID = $(".tags-show").attr('data-id').split('-')[1];
 			var taggingID = $(parentDiv).attr('data-id').split('-')[1];
 			console.log(taggingID);
 			var url = "/taggings/" + taggingID;
 			$.ajax({
 				url: url,
 				type: "delete",
-				//data: {tagging: {photo_id: photoID, tag_id: tagID}},
 				success: function() {
 					$(parentDiv).remove();
 				}

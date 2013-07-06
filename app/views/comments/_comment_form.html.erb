@@ -1,0 +1,22 @@
+<div class="comment-form">
+	<div class="comments-show" data-id="photo-<%= @photo.id %>">
+		Comments:
+		<% @photo.comments.each do |comment| %>
+		<div class="single-comment" data-id="comment-<%= comment.id %>"> 
+			<%= comment.body %> 
+		</div>
+		<% end %>
+	</div>
+	<form id="comment-form-id">
+		<input type="hidden" 
+		name="authenticity_token" 
+		value="<%= form_authenticity_token %>">
+		<input type="hidden" name="comment[photo_id]" value="28">
+		<input type="hidden" name="comment[author_id]" value="1">
+		<textarea 
+			name="comment[body]" 
+			id="comment_body" 
+			style="color:green">Add your comment here
+		</textarea>
+	</form>
+</div>
