@@ -1,6 +1,6 @@
 <div class="comment-form">
 	<div class="comments-show" data-id="photo-<%= @photo.id %>">
-		Comments:
+		<b>Comments:</b>
 		<% @photo.comments.each do |comment| %>
 		<div class="single-comment" data-id="comment-<%= comment.id %>"> 
 			<%= comment.body %> 
