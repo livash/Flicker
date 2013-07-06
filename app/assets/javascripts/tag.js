@@ -3,26 +3,22 @@ Flickr.Tag ={
 		$("#tag-form-id").submit(function(event) {
 			event.preventDefault();
 			var $form = $(this).serializeJSON();
-			console.log($form);
 			$.ajax({
 				url: "/tags",
 				type: "post",
 				data: $form,
 				success: function(resp) {
-					console.log("here....");
-					console.log(resp);
 					var tagTitle = $("#tag_title").val() + " ";
 					//clear text field
 					$("#tag_title").val("");
 					//put result into a div
-					var content = $('<div></div>').addClass("single-tag");
 					var taggingID = "tagging-" + resp.id;
-					content.attr('data-id', taggingID);
-					content.html(tagTitle);
-					var link = $("<a>").attr({'href': '#', 'class': 'remove-tag'}).html('x');
-					// link.bind("click");
-					$(content).append(link);
-					$(".tags-show").append(content);
+					var contentFn = _.template(Flickr.Templates.singlePhotoTag);
+					var newTagDiv = contentFn({
+						taggingID: taggingID, 
+						tagTitle: tagTitle
+					});
+					$(".tags-show").append(newTagDiv);
 				},
 				error: function() {
 					//clear text field
@@ -38,12 +34,9 @@ Flickr.Tag ={
 				url: "/tags",
 				type: "get",
 				success: function(resp) {
-					var $content = $("<div>");
-					$(resp).each(function(idx, tag){
-						var $span = $("<span>").html(tag.title + ", ");
-						$content.append($span);
-					});
-					$(".show-all-tags").append($content);
+					var contentFn = _.template(Flickr.Templates.showAllTags);
+					var newDiv = contentFn({ tags: resp });
+					$(".show-all-tags").append(newDiv);
 				}
 			});
 		});
@@ -53,7 +46,6 @@ Flickr.Tag ={
 			event.preventDefault();
 			var parentDiv = $(event.target).parent();
 			var taggingID = $(parentDiv).attr('data-id').split('-')[1];
-			console.log(taggingID);
 			var url = "/taggings/" + taggingID;
 			$.ajax({
 				url: url,

@@ -1,5 +1,6 @@
 window.Flickr = {
 	Tag: {},
+	Templates: {},
 	Store: {},
 };
 
