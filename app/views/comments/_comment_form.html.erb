@@ -1,7 +1,8 @@
 <div class="comment-form">
+	<b>Comments:</b>
 	<div class="comments-show" data-id="photo-<%= @photo.id %>">
-		<b>Comments:</b>
-		<% @photo.comments.each do |comment| %>
+		<% sorted_comments = @photo.comments.sort { |x, y| x.updated_at <=> y.updated_at } %>
+		<% sorted_comments.each do |comment| %>
 		<div class="single-comment" data-id="comment-<%= comment.id %>"> 
 			<%= comment.body %> 
 		</div>
@@ -11,12 +12,13 @@
 		<input type="hidden" 
 		name="authenticity_token" 
 		value="<%= form_authenticity_token %>">
-		<input type="hidden" name="comment[photo_id]" value="28">
-		<input type="hidden" name="comment[author_id]" value="1">
+		<input type="hidden" name="comment[photo_id]" value="<%= @photo.id %>">
+		<input type="hidden" name="comment[author_id]" value="<%= current_user.id %>">
 		<textarea 
 			name="comment[body]" 
 			id="comment_body" 
 			style="color:green">Add your comment here
 		</textarea>
+		<input type="submit" value="Submit">
 	</form>
 </div>

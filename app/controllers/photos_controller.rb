@@ -42,15 +42,6 @@ class PhotosController < ApplicationController
     end
   end
 
-  # def serve
-#     @photo = Photo.find(params[:id])
-#     redirect_to @photo.image.url(:thumb)
-#     # send_data(@photo.data,
-# #           :type => @photo.content_type,
-# #           :filename => "#{@photo.filename}.jpg",
-# #           :disposition => "inline")
-#   end
-
   def destroy
     @photo = Photo.find(params[:id])
     if current_user.photos.include?(@photo)

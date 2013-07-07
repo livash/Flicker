@@ -15,7 +15,9 @@ Flickr.Templates = {
 	].join("\n"),
 	
 	singlePhotoComment: [
-	
+		"<div class='single-comment' data-id='comment-<%= comment.id %>'> ",
+		"<%= comment.body %> ",
+		"</div>"
 	].join("\n"),
 };
 
