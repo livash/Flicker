@@ -36,8 +36,7 @@ Flickr.Templates = {
 	'id="comment_body" ',
 	'style="color:green"><%= commentBody %>',
 	'</textarea><br>',
-	'<input type="submit" value="SAVE">' + 
-	'<button type="button" id="comment-cancel-btn">CANCEL</button>',
+	'<input type="submit" value="SAVE">',
 	'</form>'
 	].join("\n")
 };
