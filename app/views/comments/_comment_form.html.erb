@@ -4,7 +4,11 @@
 		<% sorted_comments = @photo.comments.sort { |x, y| x.updated_at <=> y.updated_at } %>
 		<% sorted_comments.each do |comment| %>
 		<div class="single-comment" data-id="comment-<%= comment.id %>"> 
-			<%= comment.body %> 
+			<%= comment.body %>
+			<div class="comment-options">
+				<a href="#" class="remove-comment">Delete</a> 
+				<a href="#" class="edit-comment">Edit</a>
+			</div>
 		</div>
 		<% end %>
 	</div>
@@ -19,6 +23,6 @@
 			id="comment_body" 
 			style="color:green">Add your comment here
 		</textarea>
-		<input type="submit" value="Submit">
+		<input type="submit" value="Post Comment">
 	</form>
 </div>

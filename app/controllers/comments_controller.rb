@@ -11,7 +11,13 @@ class CommentsController < ApplicationController
   end
   
   def update
-    
+    @comment = Comment.find(params[:id])
+    if @comment
+      @comment.update_attributes(params[:comment])
+      render :json => @comment
+    else
+      render :json => nil
+    end  
   end
   
   def destroy
