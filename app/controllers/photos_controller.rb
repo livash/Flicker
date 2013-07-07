@@ -46,6 +46,16 @@ class PhotosController < ApplicationController
       render :index
     end
   end
+  
+  def update
+    @photo = Photo.find(params[:id])
+    if @photo and current_user.photos.include?(@photo)
+      @photo.update_attributes(params[:photo])
+      render :json => @photo
+    else
+      render :json => nil
+    end
+  end
 
   def destroy
     @photo = Photo.find(params[:id])

@@ -49,11 +49,11 @@ describe "/" do
 end
 describe 'file upload' do
   it 'should upload a file' do
-      sign_up
-     upload_image
-      #the image should be retrieved ok
-      get Photo.find_by_id(1).image.url(:thumb)
-      response.code.should == "200"
+    sign_up
+    upload_image
+    #the image should be retrieved ok
+    get Photo.find_by_id(1).image.url(:thumb)
+    response.code.should == "200"
   end
 end
 it "should create an album and add an image" do

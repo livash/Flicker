@@ -7,11 +7,11 @@ Flickr.Tag ={
 	addTag: function(params){
 		$("#tag-form-id").submit(function(event) {
 			event.preventDefault();
-			var $form = $(this).serializeJSON();
+			var form = $(this).serializeJSON();
 			$.ajax({
 				url: "/tags",
 				type: "post",
-				data: $form,
+				data: form,
 				success: function(resp) {
 					var tagTitle = $("#tag_title").val() + " ";
 					//clear text field

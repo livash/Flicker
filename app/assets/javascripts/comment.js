@@ -51,10 +51,11 @@ Flickr.Comment = {
 			var grandParentDiv = $(parentDiv).parent(); //class="single-comment"
 			var $commentBody = $(grandParentDiv).html().split("<div")[0];
 			var $commentID = $(grandParentDiv).attr('data-id').split('-')[1];
+			var $photoID = $('.photo-description').attr('data-id').split('-')[1];
 			var $newCommentForm = $("#comment-form-id").html();
-			var $authToken = $newCommentForm.split("<input")[1].split('value="')[1].split('"')[0];
+			//var $authToken = $newCommentForm.split("<input")[1].split('value="')[1].split('"')[0];
  			var $editFormFn = _.template(Flickr.Templates.editCommentForm);
-			var $editForm = $editFormFn({ authToken: $authToken, commentBody: $commentBody.trim() });
+			var $editForm = $editFormFn({ commentBody: $commentBody.trim(), photoID: $photoID });
 			
 			grandParentDiv.html('');
 			$(grandParentDiv).append($editForm);
