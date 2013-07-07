@@ -1,4 +1,20 @@
 Flickr.Templates = {
+	photoDescriptionForm: [
+	'<form id="phtoto-description-form-id">',
+	'<input type="hidden"', 
+	'name="authenticity_token" ',
+	'value="<%= window._token %>">',
+	'<input type="hidden" name="comment[photo_id]" value="<%= photo.id %>">',
+	'<textarea ',
+	'name="photo[description]" ',
+	'id="photo_description">',
+	'<%= photo.description %>',
+	'</textarea><br>',
+	'<input type="submit" value="SAVE">',
+	'<button id="photo-descr">CANCEL</button>',
+	'</form>'
+	].join("\n"),
+	
 	singlePhotoTag: [
 		"<div class='single-tag' data-id='<%= taggingID %>'>",
 		"<%= tagTitle %> " +
@@ -28,13 +44,13 @@ Flickr.Templates = {
 	'<form id="edit-comment-form-id">',
 	'<input type="hidden"', 
 	'name="authenticity_token" ',
-	'value="<%= authToken %>">',
+	'value="<%= window._token %>">',
 	'<input type="hidden" name="comment[photo_id]" value="29">',
 	'<input type="hidden" name="comment[author_id]" value="1">',
 	'<textarea ',
 	'name="comment[body]" ',
 	'id="comment_body" ',
-	'style="color:green"><%= commentBody %>',
+	'style="color:#BDBDBD><%= commentBody %>',
 	'</textarea><br>',
 	'<input type="submit" value="SAVE">',
 	'</form>'

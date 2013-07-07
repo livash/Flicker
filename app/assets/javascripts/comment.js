@@ -1,8 +1,13 @@
 Flickr.Comment = {
+	listenForCommentEvents: function() {
+		Flickr.Comment.addComment();
+		Flickr.Comment.removeComment();
+		Flickr.Comment.editComment();
+	},	
 	addComment: function() {
-		$("#comment_body").on("click", function(event) {
+		$("#comment_body").on('keypress', function(event) {
 			//clear text area
-			$(event.target).html("");			
+			$(event.target).html("").css('color', 'black');			
 		});
 		
 		$("#comment-form-id").submit(function(event) {
@@ -17,7 +22,7 @@ Flickr.Comment = {
 					var newDiv = contentFn({ comment: resp });
 					$(".comments-show").prepend(newDiv);
 					//clear text area
-					$("#comment_body").val("");	
+					$("#comment_body").val("Add a comment").css('color', '#BDBDBD');	
 				}
 			});
 		});

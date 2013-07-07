@@ -6,21 +6,18 @@
 <% else %>
 	<%= render partial: "album_photo" %>
 <% end %>
+<!-- photo description -->
+<%= render :partial => "photo_description" %>
 <!-- add tags -->
 <%= render :partial => "tags/tag_form" %>
 <!-- add comments -->
-<br>
-<br>
 <br>
 <%= render :partial => "comments/comment_form" %>
 <script>
 $(document).ready(function(){
 	// call the below function on event....
-	Flickr.Tag.addTag();
-	Flickr.Tag.showAllTags();
-	Flickr.Tag.removeTag();
-	Flickr.Comment.addComment();
-	Flickr.Comment.removeComment();
-	Flickr.Comment.editComment();
+	Flickr.Tag.ListenForTagEvents();
+	Flickr.Comment.listenForCommentEvents();
+	Flickr.Photo.listenForDescriptionEvents();
 });
 </script>

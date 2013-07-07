@@ -36,7 +36,12 @@ class PhotosController < ApplicationController
     if @photo
       params[:album_id] ? @album = Album.find(params[:album_id]) : @album = nil
       @photo_previous, @photo_next = @photo.previous_next(@album, current_user.id)
-      render :show
+      respond_to do |format|
+        format.html { render :show }
+        format.json { render :json => @photo }
+      end
+      
+     
     else
       render :index
     end

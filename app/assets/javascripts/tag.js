@@ -1,4 +1,9 @@
 Flickr.Tag ={
+	ListenForTagEvents: function() {
+		Flickr.Tag.addTag();
+		Flickr.Tag.showAllTags();
+		Flickr.Tag.removeTag();
+	},	
 	addTag: function(params){
 		$("#tag-form-id").submit(function(event) {
 			event.preventDefault();
