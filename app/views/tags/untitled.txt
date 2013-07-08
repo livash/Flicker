@@ -1,0 +1,11 @@
+<div class="content-index">
+	<h2>Search results for "<%= @search_tag_titles.join(" ") %>"</h2>
+	<% @photos.each do |photo| %>
+		<div class="photo-thumbnail">
+			<a href="<%= photo_url(photo) %>">
+			<%= image_tag photo.image.url(:thumb), :class => "thumbnail-photo" %>
+			</a>
+			<%= button_to "X", photo_url(photo), :method => :delete %>
+		</div>
+	<% end %>
+</div>

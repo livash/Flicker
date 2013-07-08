@@ -1,6 +1,8 @@
 class Photo < ActiveRecord::Base
   attr_accessible :data, :content_type, :description, :owner_id, :title, :data, :image
 
+  validates :image, :presence => true
+  
   belongs_to :owner,
   :class_name => "User"
 
