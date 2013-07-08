@@ -16,10 +16,6 @@ class TagsController < ApplicationController
     end
   end
   
-  def update
-    
-  end
-  
   def destroy
     @tag = Tag.find(params[:id])
     if current_user.tags.include?(@tag)
@@ -28,5 +24,22 @@ class TagsController < ApplicationController
     else
       render :json => nil
     end
+  end
+  
+  def search
+    # user can send two tag search
+    @search_tags = params[:tag][:title].split(' ');
+    @photos = []
+    @search_tags.each do |tag|
+      @tag = Tag.find_by_title(tag)
+      @photos << @tag.photos
+    end
+    puts "photo count ..............."
+    puts @photos.count
+    render :search
+  end
+  
+  def update
+    
   end
 end

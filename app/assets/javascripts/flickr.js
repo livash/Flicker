@@ -4,7 +4,13 @@ window.Flickr = {
 	Templates: {},
 	Store: {},
 };
-
+$(document).ready(function(){
+	// call the below function on event....
+	
+	Flickr.Tag.ListenForTagEvents();
+	Flickr.Comment.listenForCommentEvents();
+	Flickr.Photo.listenForDescriptionEvents();
+});
 
 
 //older code for using Backbone in this project

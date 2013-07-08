@@ -1,6 +1,6 @@
 <div class="single-photo">
-	<%= link_to "Previous #{@photo_previous.id}", photo_url(@photo_previous), :method => :get %>
+	<a class="btn btn-large" href="<%= photo_url(@photo_previous) %>"><i class="icon-step-backward"></i></a>
 	<%= image_tag @photo.image.url, :class => "single-photo-image" %>
-	<%= link_to "Next #{@photo_next.id}", photo_url(@photo_next), :method => :get %>
+	<a class="btn btn-large" href="<%= photo_url(@photo_next) %>"><i class="icon-step-forward"></i></a>
 </div>
 <br>

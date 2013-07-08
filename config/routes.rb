@@ -10,6 +10,9 @@ Flickr::Application.routes.draw do
   resources :collections
   resources :comments
   resources :photos 
+  resource :tags do
+    get 'search'
+  end
   resources :tags, :only => [:create, :index, :destroy]
   resources :taggings# , :only => :destroy
   
