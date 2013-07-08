@@ -16,6 +16,7 @@
 // require backbone
 //= require jquery.serializeJSON
 //= require jquery.ui.all
+//= require jquery-fileupload
 //= require flickr
 //= require_tree ../templates
 //= require_tree ./models

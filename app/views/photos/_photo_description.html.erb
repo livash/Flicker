@@ -1,5 +1,9 @@
 <div class="photo-description" data-id="photo-<%= @photo.id %>">
-	<% if @photo.description.length > 0 %>
+	<% if @photo.description.nil? %>
+	<div class="meta" data-id="photo-<%= @photo.id %>" style="color:#BDBDBD">
+		Click here to add a description
+	</div>
+	<% elsif @photo.description.length > 0 %>
 	<div class="meta" data-id="photo-<%= @photo.id %>">
 		<%= @photo.description %>
 	</div>

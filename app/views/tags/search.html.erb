@@ -6,7 +6,7 @@
 				<a href="<%= photo_url(photo) %>">
 				<%= image_tag photo.image.url(:thumb), :class => "thumbnail-photo" %>
 				</a>
-				<%= button_to "X", photo_url(photo), :method => :delete, :class => "btn" %>
+				<%#= button_to "X", photo_url(photo), :method => :delete, :class => "btn" %>
 			</div>
 		<% end %>
 	<% else %>

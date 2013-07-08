@@ -1,6 +1,3 @@
-<%= link_to "Back to Photostream", photos_url, :method => :get %>
-<br>
-
 <% if @album.nil? %>
 	<%= render partial: "photo" %>
 <% else %>

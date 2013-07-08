@@ -11,6 +11,10 @@
 	color: #cc0000;
 }
 
+.btn .btn-large .black {
+	background-color: black;
+}
+
 .photo-thumbnail {
 	height: 180px;
 	width: 199px;
@@ -26,11 +30,15 @@
 
 div .single-photo {
 	width: 100%;
-	float: center;
+	height: auto;
+	text-align: center;
+	min-height: 520px;
+	background: black;
 }
 
-.header-index {
-	
+.spacer {
+	width: 100%;
+	height: 20px;
 }
 
 .side-bar-index {
