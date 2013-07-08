@@ -36,7 +36,7 @@ class TagsController < ApplicationController
     @search_tag_titles = params[:tag][:title].split(' ');
     @photos = []
     @search_tag_titles.each do |title|
-      @tag = Tag.find_by_title(title)
+      @tag = Tag.where(:title => title, :author_id => current_user.id)[0]
       @photos += @tag.photos
     end
     
