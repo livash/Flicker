@@ -1,11 +1,17 @@
 <div class="content-index">
 	<h2>Search results for "<%= @search_tag_titles.join(" ") %>"</h2>
-	<% @photos.each do |photo| %>
-		<div class="photo-thumbnail">
-			<a href="<%= photo_url(photo) %>">
-			<%= image_tag photo.image.url(:thumb), :class => "thumbnail-photo" %>
-			</a>
-			<%= button_to "X", photo_url(photo), :method => :delete %>
-		</div>
+	<% if @photos.length > 0 %>
+		<% @photos.each do |photo| %>
+			<div class="photo-thumbnail">
+				<a href="<%= photo_url(photo) %>">
+				<%= image_tag photo.image.url(:thumb), :class => "thumbnail-photo" %>
+				</a>
+				<%= button_to "X", photo_url(photo), :method => :delete, :class => "btn" %>
+			</div>
+		<% end %>
+	<% else %>
+	<div>
+		<h5>We couldn't find anything matching your search</h5>
+	</div>
 	<% end %>
 </div>

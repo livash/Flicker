@@ -55,8 +55,7 @@ Flickr.Templates = {
 		'<input type="hidden" name="comment[author_id]" value="<%= window._userID %>">',
 		'<textarea ',
 		'name="comment[body]" ',
-		'id="comment_body" ',
-		'style="color:#BDBDBD><%= commentBody %>',
+		'id="comment_body"><%= commentBody %>',
 		'</textarea><br>',
 		'<input type="submit" value="SAVE">',
 		'</form>'

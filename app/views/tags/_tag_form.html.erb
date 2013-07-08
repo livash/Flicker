@@ -6,7 +6,7 @@
 		<input type="hidden" name="tagging[photo_id]" value="<%= @photo.id %>">
 		<input type="hidden" name="tag[author_id]" value="<%= current_user.id %>">
 		<label for="tag_title">Tag</label>
-		<input type="text" name="tag[title]" id="tag_title">
+		<input type="text" name="tag[title]" id="tag_title" placeholder="add tag">
 	</form>
 	<div class="tags-show" data-id="photo-<%= @photo.id %>">
 		<% @photo.taggings.each do |tagging| %>

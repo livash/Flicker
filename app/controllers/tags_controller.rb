@@ -7,7 +7,7 @@ class TagsController < ApplicationController
   end
   
   def create
-    @tag = Tag.find_by_title(params[:tag][:title])
+    @tag = Tag.where(:title => params[:tag][:title], :author_id => current_user.id)[0]
     if @tag
       tagging = Tagging.new(:tag_id => @tag.id, :photo_id => params[:tagging][:photo_id])
       @tag.taggings << tagging
@@ -32,12 +32,12 @@ class TagsController < ApplicationController
   end
   
   def search
-    # user can send two tag search
+    # user can send many tag search
     @search_tag_titles = params[:tag][:title].split(' ');
     @photos = []
     @search_tag_titles.each do |title|
       @tag = Tag.where(:title => title, :author_id => current_user.id)[0]
-      @photos += @tag.photos
+      @photos += @tag.photos if @tag
     end
     
     render :search

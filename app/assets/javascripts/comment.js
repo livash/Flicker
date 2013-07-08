@@ -22,7 +22,7 @@ Flickr.Comment = {
 					var newDiv = contentFn({ comment: resp });
 					$(".comments-show").prepend(newDiv);
 					//clear text area
-					$("#comment_body").val("Add a comment").css('color', '#BDBDBD');	
+					$("#comment_body").val("");	
 				}
 			});
 		});
