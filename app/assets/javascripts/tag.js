@@ -1,5 +1,5 @@
-Flickr.Tag ={
-	ListenForTagEvents: function() {
+Flickr.Tag = {
+	listenForTagEvents: function() {
 		Flickr.Tag.addTag();
 		Flickr.Tag.showAllTags();
 		Flickr.Tag.removeTag();
@@ -46,6 +46,8 @@ Flickr.Tag ={
 			});
 		});
 	},
+	test: function () {},
+	
 	removeTag: function() {
 		$(".tags-show").on('click', 'a.remove-tag', function(event){
 			event.preventDefault();

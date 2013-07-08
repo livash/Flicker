@@ -7,7 +7,7 @@ window.Flickr = {
 $(document).ready(function(){
 	// call the below function on event....
 	
-	Flickr.Tag.ListenForTagEvents();
+	Flickr.Tag.listenForTagEvents();
 	Flickr.Comment.listenForCommentEvents();
 	Flickr.Photo.listenForDescriptionEvents();
 });
