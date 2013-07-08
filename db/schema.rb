@@ -70,7 +70,7 @@ ActiveRecord::Schema.define(:version => 20130705211247) do
     t.datetime "updated_at",         :null => false
     t.string   "filename"
     t.binary   "data"
-    t.string   "image_file_name"
+    t.string   "ç"
     t.string   "image_content_type"
     t.integer  "image_file_size"
     t.datetime "image_updated_at"

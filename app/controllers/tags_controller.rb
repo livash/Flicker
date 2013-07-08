@@ -7,12 +7,17 @@ class TagsController < ApplicationController
   end
   
   def create
-    @tag = Tag.new(params[:tag])
-    @tag.taggings.build(params[:tagging])
-    if @tag.save
+    @tag = Tag.find_by_title(params[:tag][:title])
+    if @tag
+      tagging = Tagging.new(:tag_id => @tag.id, :photo_id => params[:tagging][:photo_id])
+      @tag.taggings << tagging
+      @tag.save
       render :json => @tag.taggings.last
     else
-      render :json => @tag.taggings # think about what to do if tag already exists and user tries to add it gain
+      @tag = Tag.new(params[:tag])
+      @tag.save
+      @tag.taggings.create(params[:tagging])
+      render :json => @tag.taggings.last
     end
   end
   
@@ -28,14 +33,13 @@ class TagsController < ApplicationController
   
   def search
     # user can send two tag search
-    @search_tags = params[:tag][:title].split(' ');
+    @search_tag_titles = params[:tag][:title].split(' ');
     @photos = []
-    @search_tags.each do |tag|
-      @tag = Tag.find_by_title(tag)
-      @photos << @tag.photos
+    @search_tag_titles.each do |title|
+      @tag = Tag.find_by_title(title)
+      @photos += @tag.photos
     end
-    puts "photo count ..............."
-    puts @photos.count
+    
     render :search
   end
   
