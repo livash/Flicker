@@ -1,3 +1,4 @@
+//some comment
 Flickr.Tag = {
 	listenForTagEvents: function() {
 		Flickr.Tag.addTag();
