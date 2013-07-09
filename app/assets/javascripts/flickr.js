@@ -1,15 +1,15 @@
 window.Flickr = {
+	Gallery: {},
 	Photo: {},
 	Tag: {},
 	Templates: {},
 	Store: {},
 };
 $(document).ready(function(){
-	// call the below function on event....
-	
 	Flickr.Tag.listenForTagEvents();
 	Flickr.Comment.listenForCommentEvents();
 	Flickr.Photo.listenForDescriptionEvents();
+	Flickr.Gallery.listenForGallerySubmit();
 });
 
 

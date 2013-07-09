@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130709014614) do
+ActiveRecord::Schema.define(:version => 20130709223220) do
 
   create_table "album_photos", :force => true do |t|
     t.integer  "album_id",   :null => false
@@ -80,11 +80,8 @@ ActiveRecord::Schema.define(:version => 20130709014614) do
     t.string   "description"
     t.integer  "owner_id",           :null => false
     t.string   "title"
-    t.string   "content_type"
     t.datetime "created_at",         :null => false
     t.datetime "updated_at",         :null => false
-    t.string   "filename"
-    t.binary   "data"
     t.string   "image_file_name"
     t.string   "image_content_type"
     t.integer  "image_file_size"

@@ -5,11 +5,14 @@
 <% end %>
 <!-- photo description -->
 <%= render :partial => "photo_description" %>
+<!-- add comments -->
+<div>
+<%= render :partial => "comments/comment_form" %>
 <!-- add tags -->
 <%= render :partial => "tags/tag_form" %>
-<!-- add comments -->
-<br>
-<%= render :partial => "comments/comment_form" %>
+<!-- add options for adding to the gallery -->
+<%= render :partial => "photos/gallery_form" %>
+</div>
 <script>
 
 </script>

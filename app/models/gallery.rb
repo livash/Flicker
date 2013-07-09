@@ -3,7 +3,7 @@ class Gallery < ActiveRecord::Base
   
   belongs_to :user
   
-  has_many :gallery_photos
+  has_many :gallery_photos, :dependent => :destroy
   
   has_many :photos, :through => :gallery_photos, :source => :photo
 end

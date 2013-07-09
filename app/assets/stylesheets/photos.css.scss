@@ -6,7 +6,28 @@
 //	background-color: #C6E2FF;
 //	color: #0000CD;
 //}
+.comment-form {
+	width: 30%;
+	display: inline-block;
+}
 
+.tag-form {
+	width: 33%;
+	display: inline-block;
+}
+
+.photostream-form {
+	overflow: auto;
+	white-space: nowrap;
+	height: 200px;
+	overflow-x: scroll;
+	overflow-y: hidden;
+}
+
+.gallery-form {
+	width: 33%;
+	display: inline-block;
+}
 .error-messages {
 	color: #cc0000;
 }
@@ -16,10 +37,16 @@
 }
 
 .photo-thumbnail {
+	z-index: 999;
 	height: 180px;
 	width: 199px;
-	float: left;
+	display: inline-block;
 	margin: 2px 2px 2px 2px;
+}
+
+.ui-draggable {
+	z-index: 999;
+	display: inline-block;
 }
 
 .thumbnail-photo {

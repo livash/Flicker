@@ -1,3 +1,39 @@
 // Place all the styles related to the galleries controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+.right-sidebar {
+	width: 20%;
+	height: auto;
+	position: fixed;
+	margin-left: 80%;
+	float:right;
+}
+.left-container {
+	width: 80%;
+	height: auto;
+	float: left;
+}
+.single-gallery{
+	margin-left: 15%;
+}
+/*TEST square, used to test photo position in side bars*/
+.galleries-grid {
+	
+}
+.square {
+	width: 100px;
+	height: 100px;
+	display: inline-block;
+}
+.blue {
+	background-color: blue;
+}
+.red {
+	background-color: red;
+}
+.green {
+	background-color: green;
+}
+.orange {
+	background-color: orange;
+}

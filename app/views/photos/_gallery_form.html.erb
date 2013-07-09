@@ -1,0 +1,13 @@
+<% @photo.gallery ? checked = "checked" : checked = "" %>
+<div class="gallery-form">
+	<form id="gallery-form-id">
+		<input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+		<input type="hidden" name="gallery_id" value="<%= current_user.gallery.id %>">
+		<input type="hidden" name="gallery_photo[gallery_id]" value="<%= current_user.gallery.id %>">
+		<input type="hidden" name="gallery_photo[photo_id]" value="<%= @photo.id %>" id="photo_id">
+		<input type="checkbox" name="user_id" value="<%= current_user.id %>" id="gallery_add" <%= checked %>>
+			<label for="gallery_add">Add this photo to my Gallery</label>
+		<input type="submit" value="Add photo">
+	</form>
+	<%= link_to "View your gallery", galleries_url(@photo.gallery), :method => :get %>
+</div>

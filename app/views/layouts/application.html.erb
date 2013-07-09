@@ -15,14 +15,14 @@
 	<% end %>
 </head>
 <body>
-	<%= render :partial => "/photos/nav-bar" if current_user %>
-    <div class="container" style="margin-top:40px">
+	<%= render :partial => "/photos/nav-bar" %>
+    <div class="container" style="margin-top:50px">
 		<!-- <p class="notice"><%= notice %></p>
 	    <p class="alert"><%= alert %></p> -->
 
 		<%= yield %>
 		
 	</div>	
-	<%= render :partial => "/photos/footer" if current_user %>
+	<%= render :partial => "/photos/footer" %>
 </body>
 </html>

@@ -15,6 +15,11 @@ class PhotosController < ApplicationController
   end
 
   def create
+    #create a gallery for the user with less than 1 photo
+    if current_user.photos.count < 1 and !current_user.gallery
+      gallery = Gallery.create!(:user_id => current_user.id)
+    end
+    
     @photo = Photo.new(params[:photo]) do |t|
       if params[:photo][:data]
        t.data  = params[:photo][:data].read
