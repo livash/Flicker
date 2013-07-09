@@ -9,6 +9,10 @@ Flickr::Application.routes.draw do
   
   resources :collections
   resources :comments
+  resources :galleries
+  # resource :photos do
+  #   get 'gallery'
+  # end
   resources :photos 
   resources :tags, :only => [:create, :index, :destroy]
   resource :tags do
@@ -16,10 +20,10 @@ Flickr::Application.routes.draw do
   end
   resources :taggings# , :only => :destroy
   
-  
+  resources :galleries
 
-  
-  resources :home, :only => :index
+  #resource :home, :only => :show
+  resources :home, :only => [:index, :show]
 
-  root to: "home#index"
+  root to: "galleries#index"
 end

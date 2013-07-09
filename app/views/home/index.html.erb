@@ -1,11 +1,26 @@
-<h1>Welcome to Olena's  Flickr</h1>
-<div class="login-button">
-	<%= button_to "Login here", new_user_session_url, :method => :get %>
+<div class="front-page">
+<h1 style="text-align:center">Welcome to Olena's  Flickr</h1>
+<br>
+<br>
+<br>
+<br>
+<div style="text-align:center">
+<form id="guest-user-signup">
+	<input class="btn btn-large" type="submit" name="some_name" value="GUEST" id="guest_user_submit">
+</form>
+</div>
+
+<br>
+<br>
+<br>
+<div class="login-button" style="text-align:center">
+	<%= button_to "Login here", new_user_session_url, :method => :get, :class => "btn btn-large" %>
 </div>
 <br>
 <br>
-<div class="sign-up">
-<%= button_to "Sign Up for Account here", new_user_registration_url, :method => :get %>	  
+<br>
+<div class="sign-up" style="text-align:center">
+<%= button_to "Sign Up for Account here", new_user_registration_url, :method => :get, :class => "btn btn-large" %>	  
 </div>
 <br>
 <br>
@@ -31,3 +46,4 @@
 	<p>
 		This web application was created for educational purposes only, without any pursuit for financial enrichment.
 	</p>
+</div>

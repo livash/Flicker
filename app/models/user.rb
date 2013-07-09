@@ -8,6 +8,8 @@ class User < ActiveRecord::Base
   attr_accessible :email, :password, :password_confirmation, :remember_me
 
   has_many :albums, :dependent => :destroy
+  
+  has_one :gallery
 
   has_many :photos,
   :foreign_key => :owner_id,

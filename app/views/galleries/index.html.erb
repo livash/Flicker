@@ -1,0 +1,9 @@
+<% @galleries.each do |g| %>
+<div class="single-gallery">
+<img src="<%= g.photos.first.image.url %>" class="gallery-image"></img>
+<br>
+<%= g.photos.first.owner.email %>
+<br>
+<br>
+</div>
+<% end %> 

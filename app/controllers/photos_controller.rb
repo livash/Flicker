@@ -69,4 +69,9 @@ class PhotosController < ApplicationController
       render :index
     end
   end
+  
+  def gallery
+    @photos = Photo.all
+    render :gallery
+  end
 end

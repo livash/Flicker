@@ -12,6 +12,9 @@ class Photo < ActiveRecord::Base
   has_many :comments, :dependent => :destroy
   has_many :taggings, :dependent => :destroy
   has_many :tags, :through => :taggings, :source => :tag
+  
+  has_one :gallery_photo
+  has_one :gallery, :through => :gallery_photo
 
   has_attached_file :image, :styles => {
     # thumb: '100x100>',

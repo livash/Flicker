@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130705211247) do
+ActiveRecord::Schema.define(:version => 20130709014614) do
 
   create_table "album_photos", :force => true do |t|
     t.integer  "album_id",   :null => false
@@ -61,6 +61,21 @@ ActiveRecord::Schema.define(:version => 20130705211247) do
   add_index "comments", ["author_id"], :name => "index_comments_on_author_id"
   add_index "comments", ["photo_id"], :name => "index_comments_on_photo_id"
 
+  create_table "galleries", :force => true do |t|
+    t.string   "title"
+    t.text     "description"
+    t.integer  "user_id",     :null => false
+    t.datetime "created_at",  :null => false
+    t.datetime "updated_at",  :null => false
+  end
+
+  create_table "gallery_photos", :force => true do |t|
+    t.integer  "photo_id",   :null => false
+    t.integer  "gallery_id", :null => false
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
   create_table "photos", :force => true do |t|
     t.string   "description"
     t.integer  "owner_id",           :null => false
@@ -70,7 +85,7 @@ ActiveRecord::Schema.define(:version => 20130705211247) do
     t.datetime "updated_at",         :null => false
     t.string   "filename"
     t.binary   "data"
-    t.string   "ç"
+    t.string   "image_file_name"
     t.string   "image_content_type"
     t.integer  "image_file_size"
     t.datetime "image_updated_at"
