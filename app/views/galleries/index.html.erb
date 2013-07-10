@@ -1,28 +1,36 @@
 <div class="left-container">
+	<%= render partial: "sign_in_up" %>
+  
 	<% @galleries.each do |g| %>
 	<% next if g.photos.count < 1 %>
 		<div class="single-gallery">
 			<a href="/galleries/<%= g.id %>.html">
-		<img src="<%= g.photos.first.image.url %>" class="gallery-image"></img>
-	</a>
-		<br>
-		<%= g.photos.first.owner.email %>
-		<br>
-		<br>
+				<img src="<%= g.photos.first.image.url %>" class="gallery-image"></img>
+			</a>
+			<br>
+			<%= g.photos.first.owner.email %>
+			<br>
+			<br>
 		</div>
 	<% end %> 
 </div>
+
 <div class="right-sidebar">
 	<% unless current_user %>
-	<form id="guest-user-signup">
-		<input class="btn btn-large" type="submit" name="some_name" value="GUEST" id="guest_user_submit">
-	</form>
-	<%= button_to "Login here", new_user_session_url, :method => :get, :class => "btn btn-large" %>
-	<%= button_to "Sign Up for Account here", new_user_registration_url, :method => :get, :class => "btn btn-large" %>	
+		<form id="guest-user-signup">
+			<input class="btn btn-large" type="submit" name="some_name" value="GUEST" id="guest_user_submit">
+		</form>
+		<!-- Buttons to trigger modals -->
+		<a href="#signIn" role="button" class="btn btn-large" data-toggle="modal">Existing Users</a>
+		<br>
+		<br>
+		<a href="#signUp" role="button" class="btn btn-large" data-toggle="modal">New User</a>	
 	<% end %>
+	
 	<!-- insert explore div -->
 	<div class="explore-mini">
 		<h3>Explore</h3>
 		<%= render :partial => "galleries/galleries_explore" %>
 	</div>
 </div>
+

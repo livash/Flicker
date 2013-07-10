@@ -50,20 +50,19 @@ Flickr.Photo = {
 	listenForDeletePhoto: function() {
 		$(".button_to").submit(function(event){
 			event.preventDefault();
-			var photoDiv = $(this).parent();
+			var photoDiv = $($(this).parent()).parent();
 			var photoID = $(photoDiv).attr('data-id').split('-')[1];
 			$.ajax({
 				url: "/photos/" + photoID + ".json",
 				type: "delete",
 				success: function(resp) {
-					$(photoDiv).addClass('animated bounceOut');
+					$(photoDiv).addClass('animated flipOutY');
 					var deleteIt = function() {
 						$(photoDiv).remove();
 					}
-					setTimeout(deleteIt, 700);
+					setTimeout(deleteIt, 1100);
 				} 	
 			});
-			console.log("deleting....");
 		});
-	}
+	},
 }

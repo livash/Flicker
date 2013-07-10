@@ -20,7 +20,8 @@ class Photo < ActiveRecord::Base
     # thumb: '100x100>',
     # square: '200x200#',
     # medium: '300x300>'
-    thumb: '220x200#'
+    thumb: '220x200#',
+    medium: '640x480#'
    }
 
   def previous_next(album = nil, user_id)

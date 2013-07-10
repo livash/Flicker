@@ -45,5 +45,8 @@ html,
 	}
 }
 
+div.navbar div.navbar-inner ul.nav a:hover {
+    color: pink !important; 
+}
 
 
