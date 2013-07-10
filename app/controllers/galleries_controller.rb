@@ -3,7 +3,7 @@ class GalleriesController < ApplicationController
   GALLERY_MAX = 20
   
   def index
-    @galleries = Gallery.all #.map { |g| g.photos.count > 0 }
+    @galleries = Gallery.all.sort { |x, y| y.created_at <=> x.created_at } #.map { |g| g.photos.count > 0 }
   end
   
   def show

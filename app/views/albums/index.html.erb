@@ -5,8 +5,12 @@
 <% @albums.each do |album| %>
 	<%= render partial: "album_index_tile", locals: {album: album} %>
 <% end %>
+<%#= render :partial => "new_album_tile"%>
 </div>
 <br>
+<div class="album-tiles">
+	<%= render :partial => "galleries/galleries_explore" %>
+</div>
 <div class='new-album-form'>
 	<%= render partial: "album_form" %>
 </div>

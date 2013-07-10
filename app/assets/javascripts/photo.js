@@ -45,7 +45,21 @@ Flickr.Photo = {
 				}
 			});
 		});
-		
-		
 	},
+	
+	listenForDeletePhoto: function() {
+		$(".button_to").submit(function(event){
+			event.preventDefault();
+			var photoDiv = $(this).parent();
+			var photoID = $(photoDiv).attr('data-id').split('-')[1];
+			$.ajax({
+				url: "/photos/" + photoID + ".json",
+				type: "delete",
+				success: function(resp) {
+					$(photoDiv).remove();
+				} 	
+			});
+			console.log("deleting....");
+		});
+	}
 }

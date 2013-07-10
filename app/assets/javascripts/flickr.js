@@ -9,6 +9,7 @@ $(document).ready(function(){
 	Flickr.Tag.listenForTagEvents();
 	Flickr.Comment.listenForCommentEvents();
 	Flickr.Photo.listenForDescriptionEvents();
+	Flickr.Photo.listenForDeletePhoto();
 	Flickr.Gallery.listenForGallerySubmit();
 });
 

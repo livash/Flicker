@@ -45,8 +45,6 @@ class PhotosController < ApplicationController
         format.html { render :show }
         format.json { render :json => @photo }
       end
-      
-     
     else
       render :index
     end
@@ -67,16 +65,11 @@ class PhotosController < ApplicationController
     if current_user.photos.include?(@photo)
       @photo.destroy
       @photos = current_user.photos
-      render :index
+      render :json => nil
     else
       #need to add some error message...
       @photos = current_user.photos
       render :index
     end
-  end
-  
-  def gallery
-    @photos = Photo.all
-    render :gallery
   end
 end

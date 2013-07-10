@@ -1,17 +1,7 @@
-<div class="side-bar-index">
-	<br>
-	<%#= link_to "Your photo Collections", collections_url, :method => :get %>
-	<br>
-	<%= link_to "Your photo Albums", albums_url, :method => :get %>
-	<br>
-	<br>
-	<%= link_to "Upload new photo here", new_photo_url, :method => :get %>
-</div>
-
 <div class="content-index">
 	<h2>Your Photostream</h2>
 	<% @photos.each do |photo| %>
-		<div class="photo-thumbnail">
+		<div class="photo-thumbnail" data-id="photo-<%= photo.id %>">
 			<a href="<%= photo_url(photo) %>">
 			<%= image_tag photo.image.url(:thumb), :class => "thumbnail-photo" %>
 			</a>
