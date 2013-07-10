@@ -56,7 +56,11 @@ Flickr.Photo = {
 				url: "/photos/" + photoID + ".json",
 				type: "delete",
 				success: function(resp) {
-					$(photoDiv).remove();
+					$(photoDiv).addClass('animated bounceOut');
+					var deleteIt = function() {
+						$(photoDiv).remove();
+					}
+					setTimeout(deleteIt, 700);
 				} 	
 			});
 			console.log("deleting....");
