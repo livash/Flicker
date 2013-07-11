@@ -1,16 +1,25 @@
-<h1>Your photo albums:</h1>
-<%#= link_to "Add new album here", new_album_url, :method => :get %>
-<br>
+<h1 class="animated bounceInDown">Your photo albums:</h1>
 <div class='album-tiles'>
-<% @albums.each do |album| %>
-	<%= render partial: "album_index_tile", locals: {album: album} %>
-<% end %>
-<%#= render :partial => "new_album_tile"%>
+	<% @albums.each do |album| %>
+		<% case album.id % 4 %>
+		<% when 0 %>
+			<% animate_class = "thumbnail-photo animated bounceInLeft"%>
+		<% when 1 %>
+		 	<% animate_class = "thumbnail-photo animated bounceInUp"%>
+		<% when 2 %>
+			<% animate_class = "thumbnail-photo animated bounceInRight rotateIn"%>
+		<% when 3 %>
+			<% animate_class = "thumbnail-photo animated bounceInDown"%>
+		<% end %> 
+		<%= render partial: "album_index_tile", locals: { album: album, animate_class: animate_class } %>
+	<% end %>
+	<% animate_class = "thumbnail-photo animated bounceInRight rotateIn"%>
+	<%= render partial: "new_album_tile", locals: { animate_class: animate_class } %>
 </div>
-<br>
-<div class="album-tiles">
-	<%= render :partial => "new_album_tag" %>
-</div>
-<div class='new-album-form'>
+
+
+
+
+<!-- <div class='new-album-form'>
 	<%= render partial: "album_form" %>
-</div>
+</div> -->

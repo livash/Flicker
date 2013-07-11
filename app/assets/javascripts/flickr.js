@@ -1,4 +1,5 @@
 window.Flickr = {
+	Album: {},
 	Gallery: {},
 	Photo: {},
 	Tag: {},
@@ -6,6 +7,7 @@ window.Flickr = {
 	Store: {},
 };
 $(document).ready(function(){
+	Flickr.Album.addPhotosToAlbum();
 	Flickr.Tag.listenForTagEvents();
 	Flickr.Comment.listenForCommentEvents();
 	Flickr.Photo.listenForDescriptionEvents();

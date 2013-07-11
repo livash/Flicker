@@ -17,10 +17,13 @@
 
 <div class="right-sidebar">
 	<% unless current_user %>
-		<form id="guest-user-signup">
+		<!-- <form id="guest-user-signup">
 			<input class="btn btn-large" type="submit" name="some_name" value="GUEST" id="guest_user_submit">
-		</form>
+		</form> -->
 		<!-- Buttons to trigger modals -->
+		<a href="#guest" role="button" class="btn btn-large" data-toggle="modal">GUEST</a>
+		<br>
+		<br>
 		<a href="#signIn" role="button" class="btn btn-large" data-toggle="modal">Existing Users</a>
 		<br>
 		<br>

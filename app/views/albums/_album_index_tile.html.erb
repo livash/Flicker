@@ -1,13 +1,12 @@
-<div class="album-tile" class="thumbnail">
-	<table>
-		<tr><td>
-			<% album.photos.first ? photo = album.photos.first : photo = current_user.photos.first %>
+<div class="album-tile <%= animate_class %>">
+	<div class="album-tile-single">
+			<% album.photos.first ? photo = album.photos.last : photo = current_user.photos.first %>
 			<a href="<%= album_url(album)%>">
 				<%= image_tag photo.image.url(:thumb), :class => "album-first-photo" %>
 			</a>
-		</td></tr>
-		<tr><td>
-			<%= album.title %>, <%=album.photos.count%> photos
-		</td></tr>
-	</table>
+		</div>
+		<div class="meta-album">
+			<%= album.title %> <br>
+			<%=album.photos.count%> photos
+		</div>
 </div>

@@ -1,16 +1,16 @@
 <div class="content-index">
 	<h2 class="animated bounceInDown">Your Photostream</h2>
 	<% @photos.each do |photo| %>
-	<% case photo.id % 4 %>
-	<% when 0 %>
-		<% my_class = "thumbnail-photo animated bounceInLeft"%>
-	<% when 1 %>
-	 <% my_class = "thumbnail-photo animated bounceInUp"%>
-	<% when 2 %>
-		<% my_class = "thumbnail-photo animated bounceInRight rotateIn"%>
-	<% when 3 %>
-		<% my_class = "thumbnail-photo animated bounceInDown"%>
-	<% end %> 
+		<% case photo.id % 4 %>
+		<% when 0 %>
+			<% my_class = "thumbnail-photo animated bounceInLeft"%>
+		<% when 1 %>
+		 	<% my_class = "thumbnail-photo animated bounceInUp"%>
+		<% when 2 %>
+			<% my_class = "thumbnail-photo animated bounceInRight rotateIn"%>
+		<% when 3 %>
+			<% my_class = "thumbnail-photo animated bounceInDown"%>
+		<% end %> 
 		<div class="photo-thumbnail" data-id="photo-<%= photo.id %>">
 			<a href="<%= photo_url(photo) %>">
 			<%= image_tag photo.image.url(:thumb), :class => my_class %>

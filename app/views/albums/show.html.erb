@@ -1,15 +1,5 @@
-<br>
-<%= link_to "Collections", collections_url, :method => :get %>
-<br>
-<%= link_to "Albums", albums_url, :method => :get %>
-<br>
-<%= link_to "Upload new photo", new_photo_url, :method => :get %>
-<br>
-<%= link_to "Photostream", photos_url, :method => :get %>
-<br>
-<br>
-
-<h2><%= @album.title %></h2>
+<h2>Album: <%= @album.title %></h2>
+<h5>photos: <%= @album.photos.count %></h5>
 <p><%= @album.description %></p>
 <div class="album-photos" id="h">
 	<% @album.photos.each do |photo| %>
@@ -21,7 +11,7 @@
 <% end %>
 </div>
 <br>
-<h3>Select pictures from your photostream to add to the album <%= @album.title %></h3>
+<h3>Select pictures from your photostream to add to the album "<%= @album.title %>". Drag and drop pictures.</h3>
 <br>
 <div class="photostream-form">
 	<%= render :partial => "add_photos_form" %>
