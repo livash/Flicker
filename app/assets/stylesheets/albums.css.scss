@@ -2,12 +2,24 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 .album-first-photo {
+	width: 180px;
 	height: 145px;
 }
 .album-tile {
 	height: 150px;
 	width: 199px;
 	display: inline-block;
+}
+
+.meta-album {
+	background: black;
+	height: 45px;
+	color: white;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	margin-top: -45px;
+	opacity: 0.6;
+	transition: opacity 100ms;
 }
 
 .new-album-form {
@@ -17,7 +29,6 @@
 .album-tiles {
 	width: 100%;
 	height: 20%;
-	display: inline-block;
 }
 
 .album-photos {

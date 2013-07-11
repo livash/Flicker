@@ -1,5 +1,7 @@
-<div class="container">
-  <h2>Upload images</h2>
+<div class="container-upload">
+  <h2>Upload your images</h2>
+  <h3>Drag and drop your images here</h3>
+  <h4>Or use green "Add files..." button to choose files</h4>
   <%= form_for Photo.new, :html => { :multipart => true, :id => "fileupload"  } do |f| %>
     <!-- The fileupload-buttonbar contains buttons to add/delete files and start/cancel the upload -->
     <div class="row fileupload-buttonbar">
@@ -137,7 +139,7 @@
 
 <!-- my old code -->
 
-<div class="new-photo-form">
+<!-- <div class="new-photo-form">
 	<h2>Upload your photo here:</h2>
 	<% if @photo.errors.size > 0 %>
 		<div class="error-messages">
@@ -169,4 +171,4 @@
 		<br>
 		<input type="submit" value="Upload">
 	</form>
-</div>
+</div> -->

@@ -6,8 +6,18 @@
 //	background-color: #C6E2FF;
 //	color: #0000CD;
 //}
+.container-upload {
+	background: #D8CEF6;
+	width: 100%;
+	text-align: center;
+	min-height: 700px;
+}
 
-
+.row {
+	position: absolute;
+	left: 50%;
+	margin-left: -280px;
+}
 .comment-form {
 	width: 30%;
 	display: inline-block;

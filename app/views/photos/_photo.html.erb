@@ -3,7 +3,7 @@
 	</div>
 	<a class="btn btn-large btn-inverse" href="<%= photo_url(@photo_previous) %>"><i class="icon-step-backward"></i></a>
 	<span class="photo-via-ajax">
-		<%= image_tag @photo.image.url, :class => "single-photo-image" %>
+		<%= image_tag @photo.image.url(:medium), :class => "single-photo-image" %>
 	</span>
 	<a class="btn btn-large btn btn-inverse" href="<%= photo_url(@photo_next) %>"><i class="icon-step-forward"></i></a>
 </div>

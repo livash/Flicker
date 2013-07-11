@@ -1,4 +1,4 @@
-<div class="album-tile <%= animate_class %>">
+<div class="album-tile <%= animate_class %>" data-id="album-<%= album.id%>">
 	<div class="album-tile-single">
 			<% album.photos.first ? photo = album.photos.last : photo = current_user.photos.first %>
 			<a href="<%= album_url(album)%>">
@@ -7,6 +7,6 @@
 		</div>
 		<div class="meta-album">
 			<%= album.title %> <br>
-			<%=album.photos.count%> photos
+			<%=album.photos.count%> photos, <a class="delete-album" data-id="album-<%= album.id%>">Delete album</a>
 		</div>
 </div>

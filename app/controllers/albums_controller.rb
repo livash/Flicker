@@ -39,4 +39,10 @@ class AlbumsController < ApplicationController
       redirect_to albums_url
     end
   end
+  
+  def destroy
+    @album = Album.find(params[:id])
+    @album.destroy
+    render :json => nil
+  end
 end

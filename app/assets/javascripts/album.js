@@ -1,4 +1,23 @@
 Flickr.Album = {
+	deleteAlbum: function() {
+		$('.delete-album').on('click', function(event) {
+			event.preventDefault();
+			var albumID = $(this).attr('data-id').split('-')[1];
+			console.log(albumID);
+			$.ajax({
+				url: "/albums/" + albumID + ".json",
+				type: "delete",
+				success: function() {
+					var divToRemove = $(".album-tile[data-id='album-" + albumID + "']").addClass('animated flipOutY');				
+					var deleteIt = function() {
+						$(divToRemove).remove();
+					}
+					setTimeout(deleteIt, 1100);
+				}
+			})
+		});
+	},
+	
 	addPhotosToAlbum: function() {
 		var draggedDiv = $(".photostream-form .photo-thumbnail").draggable();
 		$(draggedDiv).draggable( "option", {

@@ -8,6 +8,7 @@ window.Flickr = {
 };
 $(document).ready(function(){
 	Flickr.Album.addPhotosToAlbum();
+	Flickr.Album.deleteAlbum();
 	Flickr.Tag.listenForTagEvents();
 	Flickr.Comment.listenForCommentEvents();
 	Flickr.Photo.listenForDescriptionEvents();
