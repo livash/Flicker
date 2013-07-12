@@ -1,6 +1,6 @@
 Flickr.Photo = {
 	listenForDescriptionEvents: function () {
-		$('.photo-description').on('click', '.meta',function(event) {
+		$('.photo-description').on('click', '.meta-description',function(event) {
 			var photoID = $(event.target).attr('data-id').split('-')[1];
 			
 			//ask db for a description
@@ -10,7 +10,7 @@ Flickr.Photo = {
 				success: function(resp) {
 					var formFn = _.template(Flickr.Templates.photoDescriptionForm);
 					var form = formFn({ photo: resp });
-					$('.meta').addClass('hidden');
+					$('.meta-description').addClass('hidden');
 					$('.photo-description').append(form);
 					
 					$('#photo-description-form-id').on('submit', function(event) {
@@ -38,7 +38,7 @@ Flickr.Photo = {
 					
 					$('#photo-description-form-id').on('click', 'button#photo-descr', function(event) {
 						event.preventDefault();
-						$('.meta').toggleClass('hidden');
+						$('.meta-description').toggleClass('hidden');
 						$('#photo-description-form-id').remove();
 					});
 					

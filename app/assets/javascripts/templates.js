@@ -1,6 +1,6 @@
 Flickr.Templates = {
 	photoDescription: [
-		'<div class="meta" data-id="photo-<%= photo.id %>">',
+		'<div class="meta-description" data-id="photo-<%= photo.id %>">',
 		'<%= photo.description %>',
 		'</div>'
 	].join('\n'),
