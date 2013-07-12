@@ -1,6 +1,9 @@
 == Flickr-Light
 This Rails app represents a clone of basic functionalities from Flickr.com. This app was made for educational purposes only.
 
+== Heroku address:
+ http://flickr-light.herokuapp.com/
+
 == Supported Features
  + multiple users
  + upload multiple photos
@@ -13,4 +16,14 @@ This Rails app represents a clone of basic functionalities from Flickr.com. This
  + multiple albums per user
  + photo drag and drop
  + publically available galleries of photos
+ 
+== Technical Features
+ + jQuery.ui
+ + CSS3
+ + Bootstrap
+ + gem Devise
+ + gem Paperclip
+ + JavaScript
+ + AJAX
+ + AWS for production
 
