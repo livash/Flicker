@@ -1,3 +1,16 @@
-== Clone of Flickr
-This Rails app represents a clone of Flickr.com. 
+== Flickr-Light
+This Rails app represents a clone of basic functionalities from Flickr.com. This app was made for educational purposes only.
+
+== Supported Features
+ + multiple users
+ + upload multiple photos
+ + view photos
+ + delete photos
+ + tag photos
+ + search photos by tag
+ + leave comments on a photo
+ + organize photos into albums
+ + multiple albums per user
+ + photo drag and drop
+ + publically available galleries of photos
 
