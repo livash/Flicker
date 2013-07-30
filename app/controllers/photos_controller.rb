@@ -38,6 +38,7 @@ class PhotosController < ApplicationController
 
   def show
     @photo = Photo.find(params[:id])
+    @user = current_user
     if @photo
       params[:album_id] ? @album = Album.find(params[:album_id]) : @album = nil
       @photo_previous, @photo_next = @photo.previous_next(@album, current_user.id)

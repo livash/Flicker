@@ -2,7 +2,6 @@
 <% if @photo.gallery %>
 
 	<p>This photo is in your gallery.<p>
-		
 	<% else %>
 		<form id="gallery-form-id">
 			<input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
@@ -14,5 +13,5 @@
 			<input type="submit" value="Add photo">
 		</form>
 	<% end %>
-	<%= link_to "View your gallery", galleries_url(@photo.gallery), :method => :get %>
+	<%= link_to "View your gallery", gallery_url(@user.gallery), :method => :get %>
 </div>
