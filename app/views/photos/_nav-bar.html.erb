@@ -29,7 +29,7 @@
       </div><!--/.nav-collapse -->
 	  <div class="navbar-inverse nav-collapse navbar-search-form" style="float:right">
 		  <form action="<%= search_tags_url %>" method="get" class="navbar-form" id="search_tag">
-			  <input type="text" name="tag[title]">
+			  <input type="search" name="tag[title]" placeholder="search by tag">
 			  <i class="icon-search" style="position:absolute;right:72px;top:10px"></i>
 			  <!-- <input type="submit" class="search-icon" value="?"> -->
 			  <% if current_user %>
