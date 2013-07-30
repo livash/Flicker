@@ -10,7 +10,8 @@ Flickr.Gallery = {
 				type: "put",
 				data: form,
 				success: function(resp) {
-					var message = $("<div>").html("This photo was added to your gallery").addClass("success-message");
+					var message = $("<div>").html("This photo was added to your gallery.").addClass("success-message");
+					$("#gallery-form-id").html("");
 					$(".gallery-form").prepend(message);
 					console.log('gallery updated.....');
 					console.log(message);
