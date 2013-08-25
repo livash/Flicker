@@ -12,6 +12,8 @@
 	<%= javascript_tag "window._token = '#{form_authenticity_token}';" %>
 	<% if current_user %>
 	<%= javascript_tag "window._userID = '#{current_user.id}' "%>
+	<%= javascript_tag "window._tags = #{current_user.tags.map{|tag| tag.title}} " %>
+	<%= javascript_tag "console.log(window._tags)" %>
 	<% end %>
 </head>
 <body>
