@@ -1,18 +1,5 @@
 //some comment
-
 Flickr.Tag = {	
-	listenForSearchEvents: function(){
-		//jQueryUI autocomplete
-		$("#search-tags").click(function(){
-			var temp = $( "#search-tags" ).autocomplete({
-				source: window._tags
-			});
-			// //When jQueryUI Autocomplete is engaged, add Bootstrap class "dropdown-menu"
-		// 	$( "#search-tags" ).bind( "autocompleteopen", function(event, ui) {   
-		// 		$(this).find('ul.ui-menu').addClass("dropdown-menue");
-		// 	});
-		});
-	},
 	listenForTagEvents: function() {
 		Flickr.Tag.addTag();
 		Flickr.Tag.showAllTags();
@@ -77,6 +64,18 @@ Flickr.Tag = {
 			});
 			
 		});
-	}
+	},
+	listenForSearchEvents: function(){
+		//jQueryUI autocomplete
+		$("#search-tags").click(function(){
+			var temp = $( "#search-tags" ).autocomplete({
+			      source: window._tags,
+			});
+		//When jQueryUI Autocomplete is engaged, add Bootstrap class "dropdown-menu"
+		$( "#search-tags" ).bind( "autocompleteopen", function(event, ui) {   
+		   $(this).find('ul.ui-menu').addClass("dropdown-menu");
+		});
+		});
+	},
 }
 
