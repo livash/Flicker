@@ -11,7 +11,7 @@ Flickr.Tag = {
 		// 	$( "#search-tags" ).bind( "autocompleteopen", function(event, ui) {   
 		// 		$(this).find('ul.ui-menu').addClass("dropdown-menue");
 		// 	});
-		// });
+		});
 	},
 	listenForTagEvents: function() {
 		Flickr.Tag.addTag();
