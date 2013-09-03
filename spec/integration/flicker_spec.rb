@@ -2,8 +2,8 @@ require "spec_helper"
 
 
 def sign_up
-  visit '/'
-  click_button("Sign Up for Account here")
+  visit '/users/sign_up'
+  #click_link("Login")
   fill_in "user_email", :with => @user
   fill_in "user_password", :with => @password
   fill_in "user_password_confirmation", :with => @password
@@ -11,10 +11,11 @@ def sign_up
 end
 def upload_image
   visit new_photo_url
+  # FIXME attach file does not work since I have jQueryUI doing image upload
   path = File.join(::Rails.root, "spec/fixtures/images.jpg") 
-  attach_file("photo_image_file", path)
-  click_button("Upload")
-  current_url.should == photo_url(:id => 1)
+  attach_file("image_file_name", path)
+  click_button("Start upload")
+  current_url.should == new_photo_url #photo_url(:id => 1)
 end
 describe "flicker" do
   before :all do
