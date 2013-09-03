@@ -68,12 +68,16 @@ Flickr.Tag = {
 	listenForSearchEvents: function(){
 		//jQueryUI autocomplete
 		$("#search-tags").click(function(){
-			var temp = $( "#search-tags" ).autocomplete({
+			console.log("AAAA");
+			$( "#search-tags" ).autocomplete({
 			      source: window._tags,
+						appendTo: "#search-tags",
+						autoFocus: true
 			});
 		//When jQueryUI Autocomplete is engaged, add Bootstrap class "dropdown-menu"
 		$( "#search-tags" ).bind( "autocompleteopen", function(event, ui) {   
-		   $(this).find('ul.ui-menu').addClass("dropdown-menu");
+			console.log("BBBB");
+			 $(this).find('ul.ui-menu').addClass("dropdown-menu");
 		});
 		});
 	},

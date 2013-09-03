@@ -5,7 +5,11 @@ class User < ActiveRecord::Base
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
 
-  attr_accessible :email, :password, :password_confirmation, :remember_me
+  attr_accessible :email, :password, :password_confirmation, :remember_me, :username
+  
+  validates :email, :presence => true
+  
+  before_validation :ensure_username_has_a_value
 
   has_many :albums, :dependent => :destroy
   
@@ -22,4 +26,11 @@ class User < ActiveRecord::Base
   has_many :tags,
   :foreign_key => :author_id,
   :dependent => :destroy
+  
+  protected
+  def ensure_username_has_a_value
+    if self.username.nil?
+      self.username = self.email.split("@").first
+    end
+  end
 end
