@@ -3,6 +3,8 @@ class Photo < ActiveRecord::Base
 
   validates :image, :presence => true
   
+  scope :recent, where("created_at > ?", Time.now - 7.days)
+  
   belongs_to :owner,
   :class_name => "User"
 
